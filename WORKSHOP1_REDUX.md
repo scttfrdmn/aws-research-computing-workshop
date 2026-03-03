@@ -173,6 +173,8 @@ aws s3 cp s3://$BUCKET_NAME/test-data.txt ./
 # Run analysis
 python3 -c "
 import numpy as np
+with open('test-data.txt') as f:
+    print(f'Input: {f.read().strip()}')
 np.random.seed(42)
 data = np.random.exponential(scale=10.0, size=(100, 50))
 np.savetxt('results.csv',

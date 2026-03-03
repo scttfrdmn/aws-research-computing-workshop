@@ -157,7 +157,7 @@ aws ec2 start-instances --instance-ids $INSTANCE_ID   # later
 
 **Set `$BUCKET_NAME` for Lab 2 CLI commands**:
 ```bash
-BUCKET_NAME="rcws-yourname-0302"  # replace 'yourname' and '0302' with today's date
+BUCKET_NAME="rcws-yourname-0302"  # replace 'yourname' with your name and '0302' with today's date
 ```
 
 ---
@@ -307,11 +307,9 @@ aws ec2 terminate-instances --instance-ids $(
 
 #### The Key Insight
 
-> **"Console may seem easier, but it's error-prone and not repeatable.**
-> **CLI is better because it's scriptable.**
-> **Spore.host is best: simple AND scriptable."**
+> **"Console for learning. CLI for scripts. Spore.host for production research."**
 
-**Your research requires reproducibility. Your future self will thank you.**
+**You now know all three. Start with what you learned today, and grow from there.**
 
 ---
 
@@ -355,7 +353,7 @@ aws ec2 terminate-instances --instance-ids $(
 
 **Thank you for attending!** 🎉
 
-**Remember**: Tag everything, use Spot, check your credits, GDEW credit is already applied!
+**Remember**: Tag everything, check your credits, GDEW credit is already applied — and terminate your instances!
 
 ---
 

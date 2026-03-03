@@ -593,11 +593,16 @@ mamba install -y numpy    # ~30 seconds
 # (works because ec2-workshop-role was attached during instance launch in Lab 1)
 aws s3 cp s3://$BUCKET_NAME/test-data.txt ./
 
-# Run a trivial analysis — replace this with your real script
+# Run analysis — replace this with your real script
 python3 -c "
 import numpy as np
-np.random.seed(42)
+
+# Read input data from S3
+with open('test-data.txt') as f:
+    print(f'Input: {f.read().strip()}')
+
 # Simulating: 100 samples x 50 measurements (e.g., gene expression, metabolite levels)
+np.random.seed(42)
 data = np.random.exponential(scale=10.0, size=(100, 50))
 np.savetxt('results.csv',
     np.column_stack([data.mean(axis=0), data.std(axis=0)]),
