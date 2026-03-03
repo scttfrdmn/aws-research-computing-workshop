@@ -111,7 +111,7 @@ No SSH client or local AWS CLI installation needed — the workshop uses EC2 Ins
 
 | Problem | Solution |
 |---------|----------|
-| Instance Connect fails | Check Auto-assign public IP is set to Enable (not "Use subnet setting") |
+| Instance Connect fails | Check Auto-assign public IP is set to Enable (not "Disable") |
 | "No default VPC" | Have participant raise hand — create a default VPC via VPC console |
 | Bucket name taken | Add name + today's date: `rcws-yourname-0302` |
 | Quota exceeded | Use a smaller instance type temporarily; request increase takes 24h |

@@ -51,7 +51,7 @@ Capture these during a test run. Drop the files here with the names below.
 
 **What to show**:
 - "IAM instance profile" field showing `ec2-workshop-role` selected
-- Resource tags with Key `Workshop` / Value `cu-boulder-2025` and Key `Owner` / Value (anything)
+- Resource tags with Key `Workshop` / Value `cu-boulder-2026` and Key `Owner` / Value (anything)
 
 **Annotate**: Red boxes around both the IAM profile dropdown and the tags rows
 
@@ -65,9 +65,9 @@ Capture these during a test run. Drop the files here with the names below.
 
 **How to get there**: EC2 → Launch Instance → Network settings → click "Edit" → find "Auto-assign public IP"
 
-**What to show**: The dropdown clearly showing "Enable" selected (not "Use subnet setting")
+**What to show**: The dropdown clearly showing "Enable" selected (not "Disable")
 
-**Annotate**: Red box around the dropdown. Label: "Must be Enable — not 'Use subnet setting'"
+**Annotate**: Red box around the dropdown. Label: "Must be Enable"
 
 **Used in**: Lab 1, Step 6
 
@@ -91,10 +91,10 @@ Capture these during a test run. Drop the files here with the names below.
 
 **What**: The EC2 Instances list filtered by the Workshop tag, showing only workshop instances selected
 
-**How to get there**: EC2 → Instances → click the search/filter bar → filter by Tag → Key: `Workshop`, Value: `cu-boulder-2025` → all workshop instances appear → select all checkboxes
+**How to get there**: EC2 → Instances → click the search/filter bar → filter by Tag → Key: `Workshop`, Value: `cu-boulder-2026` → all workshop instances appear → select all checkboxes
 
 **What to show**: The filtered list with:
-- The active filter badge visible at the top: "Workshop : cu-boulder-2025"
+- The active filter badge visible at the top: "Workshop : cu-boulder-2026"
 - One or more instances checked (checkbox column)
 - Enough of the Actions menu visible to suggest "Terminate" is next
 

@@ -64,7 +64,8 @@
 ### Show: EC2 Dashboard → Launch Instance
 - EC2 → click **Launch Instance** (orange button, top right)
 - Name field: type `research-compute-01`
-- **Highlight**: The "Add additional tags" link below the name — say "We'll come back to this"
+- Click **"Add new tag"** — add `Workshop=cu-boulder-2026` and `Owner=your-name` right here
+- **Highlight**: "The tag is how we do cleanup at the end. One filter, select all, terminate. Set it now while you're thinking about it."
 
 ---
 
@@ -92,7 +93,7 @@
 - Click Edit in Network settings
 - Security group: select existing → `workshop-sg`
 - **Highlight**: Auto-assign public IP dropdown — change to **Enable**
-- Say: "This one trips people up. If this is left on 'Use subnet setting' and the subnet default is off, Instance Connect fails silently. We set it explicitly."
+- Say: "This one trips people up. If this is left on 'Disable', Instance Connect fails silently. We set it explicitly to Enable."
 
 ---
 
@@ -100,10 +101,8 @@
 - Scroll to the very bottom of the page
 - **Highlight**: "Advanced details" accordion — collapsed by default
 - Expand it
-- Say: "AWS named this 'Advanced details' but two things we need are here. The name implies optional. They're not optional for us."
+- Say: "AWS named this 'Advanced details' but the IAM role is here. The name implies optional. It's not optional for us."
 - IAM instance profile → select `ec2-workshop-role`
-- Resource tags: Key `Workshop` / Value `cu-boulder-2025`, Key `Owner` / Value your name
-- Say: "The tag is how we do cleanup at the end. One filter, select all, terminate."
 
 ---
 
@@ -247,7 +246,7 @@ head results.csv
 ## Lab 2, Part C: Cleanup
 
 ### Show: Tag-based EC2 cleanup
-- EC2 → Instances → Filter: Tag → Workshop = cu-boulder-2025
+- EC2 → Instances → Filter: Tag → Workshop = cu-boulder-2026
 - **Highlight**: The filter reducing the list to only workshop instances
 - Select all → Actions → Terminate instance
 - Say: "This is why we tagged everything. One filter, select all, done. A team of 20 researchers could clean up in 30 seconds."

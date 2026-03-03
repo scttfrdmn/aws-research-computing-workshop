@@ -48,6 +48,8 @@
 ┌─────────────────────────────────────────────┐
 │ Step 1: Name and tags                       │
 │   Name: [research-compute-01            ]   │
+│   [Add new tag]                     │
+│   Workshop=cu-boulder-2026, Owner=your-name │
 ├─────────────────────────────────────────────┤
 │ Step 2: Application and OS Images (AMI)    │
 │   ○ Amazon Linux 2023  [Free tier]         │
@@ -68,17 +70,15 @@
 ├─────────────────────────────────────────────┤
 │ Advanced details (scroll to bottom, expand)│
 │ ⚠️ IAM instance profile: ec2-workshop-role │
-│   Resource tags: Workshop=cu-boulder-2025  │
-│                  Owner=your-name           │
 ├─────────────────────────────────────────────┤
 │                      [Launch instance]      │
 └─────────────────────────────────────────────┘
 ```
 
 **Critical settings** — don't skip these:
+- ✅ **Name and tags → Add new tag**: `Workshop=cu-boulder-2026`, `Owner=your-name`
 - ✅ **Network settings → Auto-assign public IP = Enable** (if left on default, Instance Connect fails silently)
 - ✅ **Advanced details → IAM instance profile = `ec2-workshop-role`** (required for S3 access)
-- ✅ **Advanced details → Resource tags**: `Workshop=cu-boulder-2025`, `Owner=your-name`
 - ✅ Allow SSH (port 22, Anywhere-IPv4) in `workshop-sg`
 
 ---
@@ -138,7 +138,7 @@
 │ ☑ Block all public access ✅ (keep this!) │
 ├─────────────────────────────────────────────┤
 │ Bucket Versioning: Disabled                │
-│ Tags: Workshop = cu-boulder-2025           │
+│ Tags: Workshop = cu-boulder-2026           │
 ├─────────────────────────────────────────────┤
 │                      [Create bucket]        │
 └─────────────────────────────────────────────┘
@@ -247,7 +247,7 @@ EC2 → Instances → Add filter
 
 ┌─────────────────────────────────────────────┐
 │ Filter: [Tag: Workshop           ▼]       │
-│ Value:  [cu-boulder-2025          ]       │
+│ Value:  [cu-boulder-2026          ]       │
 ├─────────────────────────────────────────────┤
 │ Matching instances:                        │
 │ ☑ i-abc123  research-compute-01            │

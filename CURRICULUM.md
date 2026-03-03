@@ -223,7 +223,7 @@ Done. You'll pick this role from a dropdown during the EC2 launch in Lab 1.
 
 The Console is the primary method. A CLI sidebar follows for those who want to automate this later.
 
-> **⚠️ AWS UX warning**: Two critical settings are buried at the bottom of the launch page under **"Advanced details."** The name implies they're optional — they're not. Before clicking Launch, scroll to the bottom, expand that section, and set both your IAM role and tags. We'll call this out explicitly in Steps 7 and 8 below.
+> **⚠️ AWS UX warning**: One critical setting is buried at the bottom of the launch page under **"Advanced details."** The name implies it's optional — it's not. Before clicking Launch, scroll to the bottom, expand that section, and set your IAM role. We'll call this out explicitly in Step 7 below.
 
 ![Advanced details section collapsed at bottom of launch page](SCREENSHOTS/02-advanced-details-collapsed.png)
 
@@ -233,8 +233,12 @@ The Console is the primary method. A CLI sidebar follows for those who want to a
 1. Search for "EC2" in the top search bar → click **EC2**
 2. Click **"Launch instance"** (orange button)
 
-**Step 2: Name and AMI**
+**Step 2: Name and tags**
 - **Name**: `research-compute-01`
+- Click **"Add new tag"** (just below the Name field)
+  - Key `Workshop` / Value `cu-boulder-2026`
+  - Key `Owner` / Value `your-name`
+  - Without tags, the one-command cleanup at the end won't find your instance.
 - **AMI**: Amazon Linux 2023 (already selected — this is fine)
   - *Amazon Linux 2023 is AWS's own Linux, pre-configured and free-tier eligible*
 
@@ -250,27 +254,21 @@ The Console is the primary method. A CLI sidebar follows for those who want to a
 **Step 5: Network settings**
 - Click **"Edit"**
 - **Security group**: Select existing → choose **`workshop-sg`** (from Lab 0)
-- **Auto-assign public IP**: change to **"Enable"** — set this explicitly, don't leave it on "Use subnet setting"
+- **Auto-assign public IP**: change to **"Enable"** — set this explicitly, 
 
 ![Auto-assign public IP dropdown set to Enable](SCREENSHOTS/03-public-ip-enable.png)
 
-> **Why the public IP matters**: EC2 Instance Connect requires a public IP to reach your instance. If this is left on "Use subnet setting" and the subnet default is off, Instance Connect will fail with no useful error message. Always set it explicitly to Enable.
+> **Why the public IP matters**: EC2 Instance Connect requires a public IP to reach your instance. If this is left on "Disable", Instance Connect will fail with no useful error message. Always set it explicitly to Enable.
 
 **Step 6: Storage**
 - 8 GB gp3 (default) — fine for testing
 - For real research data: attach a larger volume or use S3
 
-**Step 7a: Advanced details → IAM instance profile** *(scroll to bottom of page, expand "Advanced details")*
+**Step 7: Advanced details → IAM instance profile** *(scroll to bottom of page, expand "Advanced details")*
 - Find **"IAM instance profile"** → select **`ec2-workshop-role`**
 - Without this, your instance gets "Access Denied" on any S3 command.
 
-![Advanced details expanded showing IAM role and tags filled in](SCREENSHOTS/04-advanced-details-expanded.png)
-
-**Step 7b: Advanced details → Tags** *(still in "Advanced details", scroll down further)*
-- **"Resource tags"** → **"Add tag"**
-- Key `Workshop` / Value `cu-boulder-2025`
-- Key `Owner` / Value `your-name`
-- Without tags, the one-command cleanup at the end won't find your instance.
+![Advanced details expanded showing IAM role selected](SCREENSHOTS/04-advanced-details-expanded.png)
 
 **Step 8: Launch**
 - Click **"Launch instance"** → wait ~60 seconds until state shows **"running"**
@@ -318,7 +316,7 @@ aws ec2 run-instances \
     --instance-type m6a.xlarge \
     --iam-instance-profile Name=ec2-workshop-role \
     --security-group-ids $SG_ID \
-    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=research-compute-cli},{Key=Workshop,Value=cu-boulder-2025},{Key=Owner,Value=your-name}]' \
+    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=research-compute-cli},{Key=Workshop,Value=cu-boulder-2026},{Key=Owner,Value=your-name}]' \
     --count 1
 
 # Get instance ID once running
@@ -633,7 +631,7 @@ aws s3 cp s3://$BUCKET_NAME/results/results.csv ./
 #### EC2: Tag-Based Cleanup
 
 **Console**:
-1. EC2 → Instances → filter: **Tag: Workshop = cu-boulder-2025**
+1. EC2 → Instances → filter: **Tag: Workshop = cu-boulder-2026**
 2. Select all → Actions → Instance State → **Terminate instance**
 
 ![Instances filtered by Workshop tag with all selected for termination](SCREENSHOTS/06-tag-filter-cleanup.png)
@@ -652,14 +650,14 @@ aws s3 cp s3://$BUCKET_NAME/results/results.csv ./
 ```bash
 # See what you're about to terminate
 aws ec2 describe-instances \
-    --filters "Name=tag:Workshop,Values=cu-boulder-2025" \
+    --filters "Name=tag:Workshop,Values=cu-boulder-2026" \
     --query 'Reservations[].Instances[].[InstanceId,Tags[?Key==`Name`].Value|[0],State.Name]' \
     --output table
 
 # Terminate all workshop instances
 aws ec2 terminate-instances --instance-ids $(
     aws ec2 describe-instances \
-        --filters "Name=tag:Workshop,Values=cu-boulder-2025" \
+        --filters "Name=tag:Workshop,Values=cu-boulder-2026" \
                   "Name=instance-state-name,Values=running,stopped,pending" \
         --query 'Reservations[].Instances[].InstanceId' \
         --output text
@@ -674,7 +672,7 @@ aws s3 rb s3://$BUCKET_NAME
 echo "S3 cleanup complete!"
 ```
 
-💡 **Why this works**: Every resource you created in this workshop has the tag `Workshop=cu-boulder-2025`. That's why we added it in Lab 1. Tags = one-command cleanup.
+💡 **Why this works**: Every resource you created in this workshop has the tag `Workshop=cu-boulder-2026`. That's why we added it in Lab 1. Tags = one-command cleanup.
 
 ---
 

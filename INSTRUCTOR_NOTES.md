@@ -36,7 +36,20 @@
 
 ---
 
-### Segment 2: Hands-On Lab 1 (0:08-0:50) - 42 min
+### Segment 1.5: Lab 0 Pre-flight (0:08-0:18) - 10 min
+
+Walk through the 5 steps in CURRICULUM.md Lab 0:
+1. Set region to US West (Oregon)
+2. Verify default VPC exists
+3. Create `workshop-sg` security group (SSH, Anywhere-IPv4)
+4. Verify CloudShell auth (`aws sts get-caller-identity`)
+5. Create `ec2-workshop-role` IAM role (EC2 trusted entity, AmazonS3FullAccess)
+
+Point out: "Five steps before anything launches. This overhead exists every time — it's what spore.host eliminates."
+
+---
+
+### Segment 2: Hands-On Lab 1 (0:18-0:50) - 32 min
 
 #### Part A: EC2 Launch (20 min)
 
@@ -62,7 +75,7 @@
 - [ ] If stuck >5 min, move them to next section, help after
 
 **Common Issues**:
-- **Instance Connect fails**: Auto-assign public IP was left on "Use subnet setting" — stop instance, can't fix after launch; terminate and relaunch with IP set to Enable
+- **Instance Connect fails**: Auto-assign public IP was left on "Disable" — stop instance, can't fix after launch; terminate and relaunch with IP set to Enable
 - **Instance Connect button greyed out**: Instance not fully running yet — wait 30 more seconds
 - **"No default VPC"**: VPC Console → Actions → Create default VPC (30 seconds)
 - **Quota exceeded**: Use m6a.large (2 vCPU, 8 GB) as fallback — still research-appropriate
@@ -151,7 +164,7 @@ aws s3 sync /local/data/ s3://bucket/data/ --progress
 ```bash
 # cleanup.sh
 aws ec2 terminate-instances --instance-ids $(aws ec2 describe-instances \
-    --filters "Name=tag:Workshop,Values=cu-boulder-2025" "Name=instance-state-name,Values=running,stopped" \
+    --filters "Name=tag:Workshop,Values=cu-boulder-2026" "Name=instance-state-name,Values=running,stopped" \
     --query 'Reservations[].Instances[].InstanceId' --output text) && echo "All workshop instances terminated!"
 ```
 
@@ -165,7 +178,7 @@ aws ec2 terminate-instances --instance-ids $(aws ec2 describe-instances \
 - Any lingering questions?
 
 **Resources to share**:
-- Workshop materials: CURRICULUM.md, QUICK_REFERENCE.md, SPOREHOST_TEASER.md
+- Workshop materials: CURRICULUM.md, QUICK_REFERENCE.md, SPOREHOST_TEASER.md, WORKSHOP1_REDUX.md
 - AWS Research Credits application link
 - CU Boulder Research Computing: https://www.colorado.edu/rc/
 
@@ -275,7 +288,7 @@ truffle quotas --family Standard
 ### Week 1 After
 - [ ] Office hours (optional)
 - [ ] Share "next steps" resources
-- [ ] Share WORKSHOP1_REDUX.md as the self-study follow-on (spore.host path)
+- [ ] Check in with participants who want to try it with real data — schedule office hours if interest is high
 
 ### Month 1 After
 - [ ] Check if anyone applied for Research Credits

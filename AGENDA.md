@@ -79,21 +79,20 @@
 
 #### Part A: Launch EC2 Instance (15 minutes)
 
-> **⚠️ AWS UX warning**: Two critical settings are buried under **"Advanced details"** at the bottom of the launch page. Steps 7 and 8 below cover them explicitly — don't skip them.
+> **⚠️ AWS UX warning**: One critical setting is buried under **"Advanced details"** at the bottom of the launch page. Step 7 below covers it explicitly — don't skip it.
 
 **Console** (primary path):
 1. EC2 → **Launch Instance**
-2. **Name**: `research-compute-01`
+2. **Name**: `research-compute-01` → click **"Add new tag"**: Key `Workshop` / Value `cu-boulder-2026`, Key `Owner` / Value `your-name`
 3. **AMI**: Amazon Linux 2023 (already selected)
 4. **Instance type**: `m6a.xlarge` (4 vCPU, 16 GB, ~$0.17/hr) — realistic for research workloads
 5. **Key pair**: "Proceed without a key pair" (we'll use Instance Connect)
-6. **Network settings → Edit**: select existing security group → **`workshop-sg`**; set **Auto-assign public IP** to **"Enable"** (explicitly — don't leave on "Use subnet setting")
-7a. **Advanced details** (scroll to bottom, expand) → **IAM instance profile**: `ec2-workshop-role`
-7b. Still in **Advanced details** → **Resource tags**: `Workshop=cu-boulder-2025`, `Owner=your-name`
+6. **Network settings → Edit**: select existing security group → **`workshop-sg`**; set **Auto-assign public IP** to **"Enable"** 
+7. **Advanced details** (scroll to bottom, expand) → **IAM instance profile**: `ec2-workshop-role`
 8. **Launch instance** → wait ~60 seconds for "running"
 9. **Connect**: select instance → Connect → **EC2 Instance Connect** → Connect
 
-> **Why public IP must be explicit**: If left on "Use subnet setting" and the subnet default is off, Instance Connect fails silently.
+> **Why public IP must be explicit**: If left on "Disable", Instance Connect fails silently.
 
 ---
 
@@ -109,7 +108,7 @@ aws ec2 run-instances \
     --image-id $AMI_ID --instance-type m6a.xlarge \
     --iam-instance-profile Name=ec2-workshop-role \
     --security-group-ids $SG_ID \
-    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=research-compute-cli},{Key=Workshop,Value=cu-boulder-2025}]' \
+    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=research-compute-cli},{Key=Workshop,Value=cu-boulder-2026}]' \
     --count 1
 ```
 
@@ -251,7 +250,7 @@ aws s3 cp s3://$BUCKET_NAME/test-data.txt ./
 #### Part C: Cleanup (10 minutes)
 
 **EC2** (tag-based — this is why we tagged):
-1. EC2 → Instances → filter: **Tag: Workshop = cu-boulder-2025**
+1. EC2 → Instances → filter: **Tag: Workshop = cu-boulder-2026**
 2. Select all → Actions → Instance State → **Terminate instance**
 
 **S3** (manual):
@@ -265,7 +264,7 @@ aws s3 cp s3://$BUCKET_NAME/test-data.txt ./
 ```bash
 aws ec2 terminate-instances --instance-ids $(
     aws ec2 describe-instances \
-        --filters "Name=tag:Workshop,Values=cu-boulder-2025" \
+        --filters "Name=tag:Workshop,Values=cu-boulder-2026" \
                   "Name=instance-state-name,Values=running,stopped" \
         --query 'Reservations[].Instances[].InstanceId' \
         --output text
