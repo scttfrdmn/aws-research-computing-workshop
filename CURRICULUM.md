@@ -125,7 +125,7 @@ The main adjustment: you're renting hardware, not owning it. The goal is to spin
 |---|---|---|---|
 | 8-core compute, 8 hours | Free (if available) | $3.20 | $0.96 |
 | GPU (g5.xlarge), 4 hours | Free (if quota permits) | $4.02 | $1.20 |
-| 1TB storage, 1 month | Free (campus) | $23.00 | $23.00 |
+| 1TB storage, 1 month | Free (campus) | $23.00 | — |
 
 **Key insight**: Cloud is not cheaper than free campus resources — it's available *right now*, without a queue.
 
@@ -252,7 +252,7 @@ The Console is the primary method. A CLI sidebar follows for those who want to a
 - **Security group**: Select existing → choose **`workshop-sg`** (from Lab 0)
 - **Auto-assign public IP**: change to **"Enable"** — set this explicitly, don't leave it on "Use subnet setting"
 
-![Auto-assign public IP dropdown set to Enable](SCREENSHOTS/04-public-ip-enable.png)
+![Auto-assign public IP dropdown set to Enable](SCREENSHOTS/03-public-ip-enable.png)
 
 > **Why the public IP matters**: EC2 Instance Connect requires a public IP to reach your instance. If this is left on "Use subnet setting" and the subnet default is off, Instance Connect will fail with no useful error message. Always set it explicitly to Enable.
 
@@ -264,7 +264,7 @@ The Console is the primary method. A CLI sidebar follows for those who want to a
 - Find **"IAM instance profile"** → select **`ec2-workshop-role`**
 - Without this, your instance gets "Access Denied" on any S3 command.
 
-![Advanced details expanded showing IAM role and tags filled in](SCREENSHOTS/03-advanced-details-expanded.png)
+![Advanced details expanded showing IAM role and tags filled in](SCREENSHOTS/04-advanced-details-expanded.png)
 
 **Step 7b: Advanced details → Tags** *(still in "Advanced details", scroll down further)*
 - **"Resource tags"** → **"Add tag"**

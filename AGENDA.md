@@ -340,7 +340,7 @@ aws ec2 terminate-instances --instance-ids $(
 **This Week**:
 1. Read SPOREHOST_TEASER.md and try `truffle find` (no AWS account needed!)
 2. Apply for AWS Research Credits
-3. Set up budget alerts for your real account
+3. Revisit your budget amount for your actual research spending
 
 **This Month**:
 1. Try Spot instances for batch processing — review checkpointing first (see SPOREHOST_TEASER.md)
