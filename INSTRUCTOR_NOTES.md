@@ -171,18 +171,18 @@ aws ec2 terminate-instances --instance-ids $(aws ec2 describe-instances \
 
 ---
 
-### Post-Workshop Bonus: Spore.host (2:00+, voluntary)
+### Post-Workshop Bonus: spore.host (2:00+, voluntary)
 
 > Hard stop at 2:00. Only demo this if participants choose to stay.
 
-**Positioning**: "You just did five setup steps before launching anything. Spore.host eliminates that overhead."
+**Positioning**: "You just did five setup steps before launching anything. spore.host eliminates that overhead."
 
 **Live Demo** (see INSTRUCTOR_LIVE_DEMO.md for full script):
 1. Show `truffle find` — natural language search, no AWS credentials needed
 2. Show `spawn` wizard — press Enter through defaults, instance in 60 seconds
 3. Show the contrast: Lab 0 was 5 steps; `spawn` is one command
 
-**Key Message**: Console for learning, CLI for scripts, Spore.host for daily research work.
+**Key Message**: Console for learning, CLI for scripts, spore.host for daily research work.
 
 **Don't**:
 - Spend time on installation details (point to SPOREHOST_TEASER.md)
@@ -260,7 +260,7 @@ truffle quotas --family Standard
 
 ### Recovery
 - **Falling behind?** Skip CLI sidebars entirely, Console path only
-- **Ahead of schedule?** Dive deeper into Cost Explorer, or start the Spore.host bonus early
+- **Ahead of schedule?** Dive deeper into Cost Explorer, or start the spore.host bonus early
 - **Total disaster?** Have pre-launched instances as backup
 
 ---
@@ -288,7 +288,7 @@ truffle quotas --family Standard
 
 ### If WiFi fails
 - Have USB drives with:
-  - Spore.host binaries
+  - spore.host binaries
   - Workshop materials (PDF or printed)
   - Pre-configured AWS profiles
 

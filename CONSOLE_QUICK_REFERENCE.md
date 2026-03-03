@@ -318,7 +318,7 @@ EC2 → Instances → Add filter
 
 **Console is great for learning, but for real work**:
 - Use AWS CLI (scriptable)
-- Use Spore.host (simple + scriptable)
+- Use spore.host (simple + scriptable)
 - See QUICK_REFERENCE.md for CLI commands
 
 **Remember**: Console = Learning. CLI/Tools = Production.

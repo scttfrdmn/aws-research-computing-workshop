@@ -351,7 +351,7 @@ Current test coverage:
 | Cost Explorer | ✅ | 80% |
 | Credits Checking | ✅ | 90% |
 | Tag-Based Cleanup | ✅ | 100% |
-| Spore.host Tools | Manual | N/A |
+| spore.host Tools | Manual | N/A |
 
 **Overall Coverage**: 95% of CLI commands tested
 
@@ -362,7 +362,7 @@ Current test coverage:
 1. **Console testing**: Automated testing of Console workflows not included (requires Selenium)
 2. **EC2 Instance Connect SSH**: Tests availability, doesn't test actual SSH connection
 3. **Cost Explorer**: May show false positives on new accounts (24hr activation delay)
-4. **Spore.host tools**: Not tested (external tool)
+4. **spore.host tools**: Not tested (external tool)
 
 ---
 

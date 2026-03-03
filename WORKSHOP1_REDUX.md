@@ -268,8 +268,8 @@ You've run the same workshop twice. The next step is your actual research data.
 ## Resources
 
 - **Workshop 1**: CURRICULUM.md — fundamentals, Console-first
-- **Spore.host quick start**: SPOREHOST_TEASER.md
-- **Spore.host GitHub**: https://github.com/scttfrdmn/mycelium
+- **spore.host quick start**: SPOREHOST_TEASER.md
+- **spore.host GitHub**: https://github.com/scttfrdmn/mycelium
 - **Workshop 2**: Parallel computing with job arrays — workshop2/
 - **CU Boulder Research Computing**: https://www.colorado.edu/rc/
 

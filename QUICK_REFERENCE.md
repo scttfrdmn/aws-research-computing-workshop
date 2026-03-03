@@ -84,7 +84,7 @@ aws budgets describe-budgets \
 
 ---
 
-## Spore.host Quick Commands
+## spore.host Quick Commands
 
 ### truffle (Discovery)
 
@@ -344,7 +344,7 @@ truffle quotas --family Standard
 ### CU Boulder
 - Research Computing: https://www.colorado.edu/rc/
 
-### Spore.host
+### spore.host
 - GitHub: https://github.com/scttfrdmn/mycelium
 
 ### AWS for Research

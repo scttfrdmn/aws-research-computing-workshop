@@ -272,7 +272,7 @@ Key points to hit:
 
 ---
 
-## 2:00+ Bonus: Spore.host (for those staying)
+## 2:00+ Bonus: spore.host (for those staying)
 
 Only show if participants are staying voluntarily after hard stop.
 

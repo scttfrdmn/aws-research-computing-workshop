@@ -56,7 +56,7 @@ If you prefer a local terminal: macOS/Linux Terminal works as-is. Windows users 
 0:50 - 1:00  Break
 1:00 - 1:45  Lab 2: Cost Management & Data Transfer (45 min)
 1:45 - 2:00  Wrap-up & Q&A (15 min)
-2:00+        Bonus: Spore.host teaser (for those who want to stay)
+2:00+        Bonus: spore.host teaser (for those who want to stay)
 ```
 
 ---
@@ -213,7 +213,7 @@ Done. You'll pick this role from a dropdown during the EC2 launch in Lab 1.
 
 ✅ **Pre-flight complete.** You have: the right region, a working VPC, a security group, CLI access, and an IAM role ready to attach. Now let's launch something.
 
-> 💡 **Notice anything?** You just completed five setup steps before launching a single instance. This is the AWS tax — configuration overhead that exists regardless of what you actually want to compute. It's also exactly what Spore.host is designed to eliminate: `spawn` handles all of this automatically.
+> 💡 **Notice anything?** You just completed five setup steps before launching a single instance. This is the AWS tax — configuration overhead that exists regardless of what you actually want to compute. It's also exactly what spore.host is designed to eliminate: `spawn` handles all of this automatically.
 
 ---
 
@@ -690,7 +690,7 @@ echo "S3 cleanup complete!"
 ✅ Set up budget alerts to prevent surprise bills
 ✅ Know about Spot instances and why they need checkpointing first
 ✅ Clean up all resources with tag-based termination
-✅ Know about Spore.host for faster daily workflows (see SPOREHOST_TEASER.md)
+✅ Know about spore.host for faster daily workflows (see SPOREHOST_TEASER.md)
 
 ---
 
@@ -715,7 +715,7 @@ echo "S3 cleanup complete!"
 1. **Try it with your data**: Start small — one instance, a dataset you know well
 2. **Apply for AWS Research Credits**: Free credits for researchers — 10-minute application at aws.amazon.com/research-credits
 3. **GDEW is already applied**: A credit toward data egress costs is applied automatically through CU's AWS agreement — no action needed
-4. **Workshop 2 — Spore.host for Production**: Job arrays, data staging, Spot with checkpointing. See **SPOREHOST_TEASER.md** to preview what's coming.
+4. **Workshop 2 — spore.host for Production**: Job arrays, data staging, Spot with checkpointing. See **SPOREHOST_TEASER.md** to preview what's coming.
 
 ---
 
@@ -725,7 +725,7 @@ echo "S3 cleanup complete!"
 - AWS Research Credits: https://aws.amazon.com/research-credits/
 - AWS Pricing Calculator: https://calculator.aws/
 
-**Spore.host**:
+**spore.host**:
 - Quick start: See **SPOREHOST_TEASER.md** (distributed with this workshop)
 - GitHub: https://github.com/scttfrdmn/mycelium
 
@@ -734,7 +734,7 @@ echo "S3 cleanup complete!"
 
 ---
 
-## Bonus: Spore.host — A Better Way (post-workshop, for those staying)
+## Bonus: spore.host — A Better Way (post-workshop, for those staying)
 
 > **Hard stop at 2 hours. This section is for participants who want to stay a few extra minutes.**
 >
@@ -744,7 +744,7 @@ You've just experienced the gap between learning and daily use:
 - **Console**: Easy to start, but not repeatable
 - **CLI**: Repeatable, but verbose
 
-Spore.host (two tools: `truffle` + `spawn`) closes that gap.
+spore.host (two tools: `truffle` + `spawn`) closes that gap.
 
 **Quick taste**:
 ```bash
@@ -766,6 +766,6 @@ spawn list
 truffle spot "m7i.*" --sort-by-price | spawn --spot --ttl 8h
 ```
 
-> "Console for learning. CLI for scripts. **Spore.host for real research work.**"
+> "Console for learning. CLI for scripts. **spore.host for real research work.**"
 
-📄 **See SPOREHOST_TEASER.md** for: installation, all commands, real research examples (genomics, GPU, parallel jobs), and a preview of Workshop 2 (Spore.host for Production).
+📄 **See SPOREHOST_TEASER.md** for: installation, all commands, real research examples (genomics, GPU, parallel jobs), and a preview of Workshop 2 (spore.host for Production).

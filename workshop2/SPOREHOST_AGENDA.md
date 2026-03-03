@@ -1,6 +1,6 @@
 # Mycelium Workshop - Final Agenda
 
-**Workshop Title**: From AWS Fundamentals to Production: Mycelium/Spore.host Workshop
+**Workshop Title**: From AWS Fundamentals to Production: Mycelium/spore.host Workshop
 **Duration**: 2-3 hours (2 hours core + 30min advanced optional)
 **Prerequisites**: Completed AWS fundamentals workshop OR basic AWS CLI experience
 **Target Audience**: Researchers ready for production cloud workflows

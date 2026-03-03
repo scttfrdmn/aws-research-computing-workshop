@@ -68,7 +68,7 @@
 
 ✅ Pre-flight complete when: right region, VPC visible, workshop-sg and ec2-workshop-role created, CLI responds
 
-> 💡 **Notice anything?** Five steps before a single instance launches. This overhead exists every time — it's also exactly what Spore.host eliminates.
+> 💡 **Notice anything?** Five steps before a single instance launches. This overhead exists every time — it's also exactly what spore.host eliminates.
 
 ---
 
@@ -286,7 +286,7 @@ aws ec2 terminate-instances --instance-ids $(
 ✅ Set up budget alerts to prevent surprise bills
 ✅ Know about Spot and why checkpointing comes first
 ✅ Tag-based one-command cleanup
-✅ Previewed Spore.host: same labs in ~60 seconds instead of 5 pre-flight steps
+✅ Previewed spore.host: same labs in ~60 seconds instead of 5 pre-flight steps
 
 ---
 
@@ -299,7 +299,7 @@ aws ec2 terminate-instances --instance-ids $(
 | **AWS credits** | $1,000-$100,000 | 10 min application |
 | **GDEW** | Credit on egress costs | Already applied through CU agreement |
 | **Tag-based cleanup** | Prevents forgotten resources | 30 seconds per resource |
-| **Auto-termination (TTL)** | Prevents overnight costs | Built into Spore.host (see SPOREHOST_TEASER.md) |
+| **Auto-termination (TTL)** | Prevents overnight costs | Built into spore.host (see SPOREHOST_TEASER.md) |
 
 **Total potential annual savings**: $5,000-$50,000+ for typical researcher
 
@@ -307,7 +307,7 @@ aws ec2 terminate-instances --instance-ids $(
 
 #### The Key Insight
 
-> **"Console for learning. CLI for scripts. Spore.host for production research."**
+> **"Console for learning. CLI for scripts. spore.host for production research."**
 
 **You now know all three. Start with what you learned today, and grow from there.**
 
@@ -320,7 +320,7 @@ aws ec2 terminate-instances --instance-ids $(
 - GDEW Information: https://aws.amazon.com/government-education/research-and-technical-computing/data-egress-waiver/
 - AWS for Research: https://aws.amazon.com/government-education/research/
 
-**Spore.host**:
+**spore.host**:
 - Quick start: See **SPOREHOST_TEASER.md** (distributed with this workshop)
 - GitHub: https://github.com/scttfrdmn/mycelium
 
@@ -359,11 +359,11 @@ aws ec2 terminate-instances --instance-ids $(
 
 ---
 
-## 2:00+ | Bonus: Spore.host Teaser (for those staying)
+## 2:00+ | Bonus: spore.host Teaser (for those staying)
 
 > **Hard stop was at 2:00. This is entirely optional — participants are free to leave.**
 
-You've just done five steps of pre-flight just to launch one instance. This is the AWS tax. Spore.host (`truffle` + `spawn`) eliminates it.
+You've just done five steps of pre-flight just to launch one instance. This is the AWS tax. spore.host (`truffle` + `spawn`) eliminates it.
 
 See **SPOREHOST_TEASER.md** for the full reference. Quick taste:
 
@@ -386,7 +386,7 @@ spawn list
 truffle spot "m6a.*" --sort-by-price | spawn --spot --ttl 8h
 ```
 
-> "Console for learning. CLI for scripts. **Spore.host for production research.**"
+> "Console for learning. CLI for scripts. **spore.host for production research.**"
 
 📄 **SPOREHOST_TEASER.md**: installation, all commands, real research examples (genomics, GPU, parallel jobs), Workshop 2 preview.
 
@@ -413,7 +413,7 @@ truffle spot "m6a.*" --sort-by-price | spawn --spot --ttl 8h
 **1 Day Before**:
 - [ ] Test AWS account access
 - [ ] Launch test instance to verify quotas
-- [ ] Download Spore.host binaries to USB drive (backup)
+- [ ] Download spore.host binaries to USB drive (backup)
 - [ ] Print CONSOLE_QUICK_REFERENCE.md (1 per participant)
 
 **30 Min Before**:

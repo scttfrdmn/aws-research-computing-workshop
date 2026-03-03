@@ -15,8 +15,8 @@
 - **QUICK_REFERENCE.md** — CLI command cheat sheet (printable)
 - **CONSOLE_QUICK_REFERENCE.md** — Where to find things in the AWS Console
 - **REMOTE_ACCESS_AND_TRANSFER.md** — SSH connection, Jupyter port forwarding, rclone, Cyberduck, WinSCP, VS Code Remote
-- **SPOREHOST_TEASER.md** — Spore.host quick start (post-workshop bonus)
-- **WORKSHOP1_REDUX.md** — Workshop 1 Redux: The Fast Path (self-study, ~45 min, does everything Workshop 1 did using Spore.host)
+- **SPOREHOST_TEASER.md** — spore.host quick start (post-workshop bonus)
+- **WORKSHOP1_REDUX.md** — Workshop 1 Redux: The Fast Path (self-study, ~45 min, does everything Workshop 1 did using spore.host)
 
 ### For Instructors
 
@@ -25,11 +25,11 @@
 
 ### Workshop 1 Redux
 
-- **WORKSHOP1_REDUX.md** — Self-study companion: same labs as Workshop 1, using Spore.host instead of the Console. 45–60 minutes. Requires Workshop 1 or equivalent.
+- **WORKSHOP1_REDUX.md** — Self-study companion: same labs as Workshop 1, using spore.host instead of the Console. 45–60 minutes. Requires Workshop 1 or equivalent.
 
 ### Workshop 2
 
-- **workshop2/** — Spore.host for Production Research Computing (separate workshop, requires Workshop 1 or equivalent)
+- **workshop2/** — spore.host for Production Research Computing (separate workshop, requires Workshop 1 or equivalent)
 
 ---
 
@@ -55,7 +55,7 @@ Participants will:
 0:50-1:00  Break
 1:00-1:45  Lab 2: Cost management, data transfer, analysis loop, cleanup
 1:45-2:00  Wrap-up & resources
-2:00+      Bonus: Spore.host demo (optional, for those staying)
+2:00+      Bonus: spore.host demo (optional, for those staying)
 ```
 
 ---
@@ -101,7 +101,7 @@ No SSH client or local AWS CLI installation needed — the workshop uses EC2 Ins
 **Day before**:
 - [ ] Launch and terminate a test m6a.xlarge in us-west-2 (verify quota)
 - [ ] Print QUICK_REFERENCE.md and CONSOLE_QUICK_REFERENCE.md (1 per participant)
-- [ ] Download Spore.host binaries to USB drive (backup if WiFi fails)
+- [ ] Download spore.host binaries to USB drive (backup if WiFi fails)
 
 **30 minutes before**:
 - [ ] Test AV / screen sharing
@@ -138,7 +138,7 @@ No SSH client or local AWS CLI installation needed — the workshop uses EC2 Ins
 - AWS Research Credits: https://aws.amazon.com/research-credits/
 - GDEW Information: https://aws.amazon.com/government-education/research-and-technical-computing/data-egress-waiver/
 - CU Boulder Research Computing: https://www.colorado.edu/rc/
-- Spore.host GitHub: https://github.com/scttfrdmn/mycelium
+- spore.host GitHub: https://github.com/scttfrdmn/mycelium
 
 ---
 

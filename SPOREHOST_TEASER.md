@@ -1,12 +1,12 @@
-# Spore.host Quick Start: A Better Way to Run AWS Research Computing
+# spore.host Quick Start: A Better Way to Run AWS Research Computing
 
 > **This is a companion document to the main workshop.**
-> It covers Spore.host (two tools: `truffle` + `spawn`) as a faster alternative to the AWS Console and CLI.
+> It covers spore.host (two tools: `truffle` + `spawn`) as a faster alternative to the AWS Console and CLI.
 > The main workshop teaches you the fundamentals — this shows you what daily production use looks like.
 
 ---
 
-## Why Spore.host?
+## Why spore.host?
 
 After today's workshop, you know how to:
 - Launch instances with `aws ec2 run-instances` (20+ flags)
@@ -14,9 +14,9 @@ After today's workshop, you know how to:
 - Find an AMI with a JMESPath query
 - Manage everything region by region
 
-**Spore.host wraps all of that into two simple tools:**
+**spore.host wraps all of that into two simple tools:**
 
-| Task | AWS CLI | Spore.host |
+| Task | AWS CLI | spore.host |
 |------|---------|------------|
 | Launch an instance | `aws ec2 run-instances --image-id ami-xxx --instance-type m6a.xlarge --tag-specifications ...` | `spawn --instance-type m6a.xlarge` |
 | Find cheapest Spot | `aws ec2 describe-spot-price-history --instance-types m6a.* ... \| jq ...` | `truffle spot "m6a.*" --sort-by-price` |
@@ -24,7 +24,7 @@ After today's workshop, you know how to:
 | Launch 10 parallel instances | `for i in {1..10}; do aws ec2 run-instances ...; done` | `spawn launch --count 10 --job-array-name my-job` |
 | Search by hardware feature | Know AWS naming conventions (p5.48xlarge = H100) | `truffle find h100` |
 
-> "Console for learning. CLI for scripts. **Spore.host for real research work.**"
+> "Console for learning. CLI for scripts. **spore.host for real research work.**"
 
 ---
 
@@ -186,7 +186,7 @@ spawn stop --job-array-name my-analysis    # Stop all 10
 spawn start --job-array-name my-analysis   # Resume all 10
 ```
 
-**This is covered in depth in Workshop 2 (Spore.host for Production).**
+**This is covered in depth in Workshop 2 (spore.host for Production).**
 
 ---
 
@@ -293,8 +293,8 @@ spawn stage delete dataset.tar.gz
 | Task | Use |
 |------|-----|
 | **Learning AWS concepts** | AWS Console + CLI (today's workshop!) |
-| **Daily research work** | Spore.host (`spawn` + `truffle`) |
-| **Production pipelines** | Spore.host (Workshop 2) |
+| **Daily research work** | spore.host (`spawn` + `truffle`) |
+| **Production pipelines** | spore.host (Workshop 2) |
 | **Exploring instance options** | `truffle find` (no AWS account needed!) |
 | **One-off edge cases** | AWS CLI |
 | **Automation/infrastructure** | AWS CLI or Terraform |
@@ -316,7 +316,7 @@ spawn stage delete dataset.tar.gz
 ## Getting More
 
 - **GitHub**: https://github.com/scttfrdmn/mycelium
-- **Workshop 2**: Spore.host for Production Research Computing
+- **Workshop 2**: spore.host for Production Research Computing
   - Job arrays at scale (10-20 instances, quota-dependent)
   - Data staging (99% transfer cost savings)
   - Real workflows: genomics, imaging, distributed ML
@@ -324,4 +324,4 @@ spawn stage delete dataset.tar.gz
 
 ---
 
-*Spore.host is a complement to AWS, not a replacement. Learn the fundamentals first — then use these tools to work faster.*
+*spore.host is a complement to AWS, not a replacement. Learn the fundamentals first — then use these tools to work faster.*

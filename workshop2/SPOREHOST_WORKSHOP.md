@@ -1,6 +1,6 @@
 # Mycelium for Research Computing: Production Cloud Workflows
 
-**Workshop Title**: From AWS Fundamentals to Production: Mycelium/Spore.host Workshop
+**Workshop Title**: From AWS Fundamentals to Production: Mycelium/spore.host Workshop
 **Duration**: 2-3 hours (2 hours core + 30min optional advanced topics)
 **Prerequisites**: Completed "Introduction to AWS for Research Computing" workshop OR basic AWS experience
 **Target Audience**: Researchers ready to move from learning to production cloud workflows
