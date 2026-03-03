@@ -412,7 +412,7 @@ truffle spot "m6a.*" --sort-by-price | spawn --spot --ttl 8h
 - [ ] Test AWS account access
 - [ ] Launch test instance to verify quotas
 - [ ] Download spore.host binaries to USB drive (backup)
-- [ ] Print CONSOLE_QUICK_REFERENCE.md (1 per participant)
+- [ ] Print QUICK_REFERENCE.md and CONSOLE_QUICK_REFERENCE.md (1 per participant)
 
 **30 Min Before**:
 - [ ] Test AV setup (projector, mic)

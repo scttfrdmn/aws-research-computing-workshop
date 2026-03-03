@@ -95,10 +95,6 @@ truffle find "large amd"             # Find large AMD instances
 truffle find "efa graviton"          # Find Graviton with EFA
 truffle find "100gbps intel"         # High-bandwidth instances
 
-# Regex pattern search (for power users)
-truffle search m7i.large
-truffle search "p5\..*"              # All p5 instances
-
 # Check Spot prices
 truffle spot m6a.xlarge --region us-west-2
 

@@ -232,7 +232,7 @@ You've run the same workshop twice. The next step is your actual research data.
 **This week**:
 1. Launch with your real dataset: `spawn --instance-type m6a.xlarge --ttl 4h`
 2. `spawn list` at the start and end of every session
-3. When done: `spawn stop` or let TTL handle it
+3. When done: `spawn stop research-01` or let TTL handle it
 
 **When you're ready for more**:
 
