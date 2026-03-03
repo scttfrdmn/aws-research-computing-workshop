@@ -275,7 +275,7 @@ truffle quotas --family Standard
 ### Week 1 After
 - [ ] Office hours (optional)
 - [ ] Share "next steps" resources
-- [ ] Share SPOREHOST_TEASER.md for those who want to go further
+- [ ] Share WORKSHOP1_REDUX.md as the self-study follow-on (spore.host path)
 
 ### Month 1 After
 - [ ] Check if anyone applied for Research Credits

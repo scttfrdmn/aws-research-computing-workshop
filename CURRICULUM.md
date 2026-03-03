@@ -55,7 +55,7 @@ If you prefer a local terminal: macOS/Linux Terminal works as-is. Windows users 
 0:18 - 0:50  Lab 1: Launch EC2 & Store Data in S3 (32 min)
 0:50 - 1:00  Break
 1:00 - 1:45  Lab 2: Cost Management & Data Transfer (45 min)
-1:45 - 2:00  Wrap-up & Q&A (15 min)
+1:45 - 2:00  Wrap-up & Resources (15 min)
 2:00+        Bonus: spore.host teaser (for those who want to stay)
 ```
 
@@ -447,7 +447,7 @@ aws s3 cp test-data.txt s3://$BUCKET_NAME/
 
 ### Part A: Set Up Cost Alerts (15 min)
 
-> A forgotten instance running over a weekend costs ~$10 (m6a.xlarge × ~60 hours). A stopped-but-not-terminated instance for a month costs ~$0.80 in storage (8 GB default). This 5-minute setup is your safety net.
+> A forgotten instance running over a weekend costs ~$10 (m6a.xlarge × ~60 hours). A stopped-but-not-terminated instance for a month costs ~$0.64 in storage (8 GB default). This 5-minute setup is your safety net.
 
 #### AWS Budgets - Console Method
 
