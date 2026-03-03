@@ -65,7 +65,7 @@ If you prefer a local terminal: macOS/Linux Terminal works as-is. Windows users 
 
 ### AWS is for Netflix — and for you
 
-AWS runs Netflix, Airbnb, NASA, and the National Labs. It's engineered for scale most of us will never need. That's why it can feel overwhelming: you're looking at infrastructure designed to serve hundreds of millions of users, and you just want to run a GATK pipeline.
+AWS runs Netflix, Airbnb, NASA, and Amazon.com itself. It's engineered for scale most of us will never need. That's why it can feel overwhelming: you're looking at infrastructure designed to serve hundreds of millions of users, and you just want to run a GATK pipeline.
 
 Here's what actually matters for research computing:
 
