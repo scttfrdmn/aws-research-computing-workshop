@@ -268,7 +268,7 @@ truffle quotas --family Standard
 ## Post-Workshop Follow-Up
 
 ### Day 1 After
-- [ ] Email workshop materials (CURRICULUM.md, QUICK_REFERENCE.md, SPOREHOST_TEASER.md)
+- [ ] Email workshop materials (CURRICULUM.md, QUICK_REFERENCE.md, SPOREHOST_TEASER.md, WORKSHOP1_REDUX.md)
 - [ ] Share AWS Research Credits link
 - [ ] Send survey for feedback
 

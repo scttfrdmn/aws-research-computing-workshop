@@ -121,7 +121,7 @@ aws ec2 run-instances \
 
 | Action | Cost | Data? |
 |--------|------|-------|
-| Stop | ~$0.80/mo (storage only, 8 GB) | ✅ Kept |
+| Stop | ~$0.64/mo (storage only, 8 GB) | ✅ Kept |
 | Terminate | $0 | ❌ Gone |
 
 **Console**: EC2 → your instance → Actions → Instance State → **Stop**

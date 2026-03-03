@@ -342,13 +342,13 @@ aws ec2-instance-connect ssh --instance-id $INSTANCE_ID
 
 **Cost Savings**:
 - **Running**: Pay for compute + storage ($0.173/hour for m6a.xlarge = $125/month 24/7)
-- **Stopped**: Pay only for storage (~$0.80/month for 8 GB EBS volume)
+- **Stopped**: Pay only for storage (~$0.64/month for 8 GB EBS volume)
 - **Terminated**: Pay nothing (but lose everything)
 
 **When to Stop vs Terminate**:
 | Action | When to Use | Cost | Data Persists? |
 |--------|-------------|------|----------------|
-| **Stop** | Done for the day, will use tomorrow | Storage only (~$0.80/mo for 8 GB) | ✅ Yes |
+| **Stop** | Done for the day, will use tomorrow | Storage only (~$0.64/mo for 8 GB) | ✅ Yes |
 | **Terminate** | Done forever, don't need again | $0 | ❌ No (gone!) |
 
 ---

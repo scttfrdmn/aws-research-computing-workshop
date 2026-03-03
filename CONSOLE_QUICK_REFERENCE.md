@@ -33,7 +33,7 @@
 │ Filters: Name | Type | State | Tag         │
 ├─────────────────────────────────────────────┤
 │ Instance ID | Name | Instance State | Type │
-│ i-abc123   | research-01 | Running   | t3.m│
+│ i-abc123   | research-01 | Running   | m6a.│
 └─────────────────────────────────────────────┘
 ```
 **What to look for**:

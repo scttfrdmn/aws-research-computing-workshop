@@ -244,7 +244,7 @@ aws budgets create-budget --account-id YOUR_ACCOUNT --budget file://budget.json
 
 ### 5. Stop (Don't Terminate) for Dev Instances
 ```bash
-# Stopped instances: No compute charge, only storage (~$0.10/GB/month)
+# Stopped instances: No compute charge, only storage (~$0.08/GB/month)
 aws ec2 stop-instances --instance-ids i-xxx
 aws ec2 start-instances --instance-ids i-xxx
 ```
