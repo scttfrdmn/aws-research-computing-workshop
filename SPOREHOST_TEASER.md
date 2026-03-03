@@ -102,7 +102,7 @@ Launching...
 🎉 Instance ready in 60 seconds!
 Name: research-01
 
-Cost estimate: ~$0.04/hour
+Cost estimate: ~$0.17/hour
 Auto-terminates in 8 hours (NO SURPRISE BILLS!)
 ```
 
@@ -140,10 +140,10 @@ spawn list
 
 # Output:
 # NAME         ID         TYPE        REGION     STATE    COST/HR  TTL    TOTAL
-# research-01  i-0abc123  m6a.xlarge   us-west-2  running  $0.04    6h     $0.12
+# research-01  i-0abc123  m6a.xlarge  us-west-2  running  $0.17    6h     $0.34
 # genomics-gpu i-0def456  p3.2xlarge  us-east-1  running  $3.06    2h     $6.12
 #
-# Total: $3.10/hour
+# Total: $3.23/hour
 
 # Stop to save money (keeps data, zero compute charge)
 spawn stop i-0abc123

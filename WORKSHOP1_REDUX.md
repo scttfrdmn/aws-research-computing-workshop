@@ -37,7 +37,7 @@
 **Workshop 1 Redux Lab 0**:
 
 ```bash
-# Install (macOS or Linux — run in your local terminal or CloudShell)
+# Install (macOS or Linux — run in your local terminal)
 curl -L https://github.com/scttfrdmn/mycelium/releases/latest/download/mycelium-$(uname -s)-$(uname -m).tar.gz | tar xz
 export PATH=$PATH:$PWD/mycelium/bin
 
@@ -49,6 +49,8 @@ spawn --version
 **Windows**: Download the Windows release from the GitHub releases page and add to your PATH.
 
 That's it. No VPC check. No security group. No IAM role to pre-create. `spawn` handles all of that at launch time.
+
+> **Prerequisite**: `spawn` calls AWS APIs, so you need AWS credentials configured locally. If you haven't done this, run `aws configure` (or set up AWS SSO) before the verify step. If you completed Workshop 1 and used CloudShell, you need to configure credentials on your local machine now — CloudShell credentials don't carry over.
 
 ✅ **Lab 0 complete when**: `truffle --version` and `spawn --version` both respond.
 
@@ -121,10 +123,6 @@ aws s3 cp test-data.txt s3://$BUCKET_NAME/
 ```
 
 > This is intentional. S3 is AWS's persistent object store — it outlives any compute tool you use. You'll interact with it the same way whether you launched your instance with `spawn`, the Console, or a script.
-
----
-
-## Break (10 minutes)
 
 ---
 
