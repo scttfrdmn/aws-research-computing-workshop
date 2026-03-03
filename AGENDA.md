@@ -294,7 +294,7 @@ aws ec2 terminate-instances --instance-ids $(
 
 | Technique | Potential Savings | Time to Implement |
 |-----------|-------------------|-------------------|
-| **Spot instances** | 50-90% on compute | 2 minutes (add one flag) |
+| **Spot instances** | 50-90% on compute | 2 min flag (checkpointing required first — see SPOREHOST_TEASER.md) |
 | **S3 lifecycle policies** | 80-95% on old data | 5 minutes |
 | **AWS credits** | $1,000-$100,000 | 10 min application |
 | **GDEW** | Credit on egress costs | Already applied through CU agreement |
@@ -317,7 +317,7 @@ aws ec2 terminate-instances --instance-ids $(
 
 **AWS**:
 - AWS Research Credits: https://aws.amazon.com/research-credits/
-- GDEW Information: aws.amazon.com/government-education/research-and-technical-computing/data-egress-waiver/
+- GDEW Information: https://aws.amazon.com/government-education/research-and-technical-computing/data-egress-waiver/
 - AWS for Research: https://aws.amazon.com/government-education/research/
 
 **Spore.host**:

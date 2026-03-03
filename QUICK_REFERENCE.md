@@ -356,7 +356,10 @@ truffle quotas --family Standard
 
 ## Emergency Commands
 
-### Stop All Running Instances
+### Terminate All Workshop Instances
+
+> ⚠️ **This terminates (not stops) instances. Termination is irreversible.** Also note: this command has no tag filter — it will terminate ALL running instances in the account. Use the tag-based cleanup command in CURRICULUM.md unless you are certain this account has only workshop resources.
+
 ```bash
 aws ec2 describe-instances \
     --filters "Name=instance-state-name,Values=running" \
