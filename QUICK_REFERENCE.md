@@ -368,7 +368,7 @@ aws ec2 describe-instances \
 xargs -n 1 aws ec2 terminate-instances --instance-ids
 ```
 
-### Delete All S3 Buckets (CAUTION!)
+### Delete a Specific S3 Bucket (CAUTION!)
 ```bash
 # List all buckets
 aws s3 ls

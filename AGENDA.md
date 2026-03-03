@@ -286,7 +286,7 @@ aws ec2 terminate-instances --instance-ids $(
 ✅ Set up budget alerts to prevent surprise bills
 ✅ Know about Spot and why checkpointing comes first
 ✅ Tag-based one-command cleanup
-✅ Spore.host available as bonus if staying after
+✅ Previewed Spore.host: same labs in ~60 seconds instead of 5 pre-flight steps
 
 ---
 

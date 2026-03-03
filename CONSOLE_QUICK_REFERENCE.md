@@ -309,7 +309,6 @@ EC2 → Instances → Add filter
 |----------|--------|
 | `G` + `E` | Go to EC2 |
 | `G` + `S` | Go to S3 |
-| `G` + `B` | Go to Billing |
 | `/` | Focus search bar |
 | `?` | Show all shortcuts |
 
