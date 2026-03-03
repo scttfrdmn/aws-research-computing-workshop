@@ -119,8 +119,8 @@
 ├─────────────────────────────────────────────┤
 │ Search buckets: [                        ] │
 ├─────────────────────────────────────────────┤
-│ Bucket name              | Region | Access │
-│ rcws | us-w-2 | Private│
+│ Bucket name              | Region    | Access  │
+│ rcws-yourname-0302       | us-west-2 | Private │
 └─────────────────────────────────────────────┘
 ```
 

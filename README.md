@@ -16,11 +16,16 @@
 - **CONSOLE_QUICK_REFERENCE.md** — Where to find things in the AWS Console
 - **REMOTE_ACCESS_AND_TRANSFER.md** — SSH connection, Jupyter port forwarding, rclone, Cyberduck, WinSCP, VS Code Remote
 - **SPOREHOST_TEASER.md** — Spore.host quick start (post-workshop bonus)
+- **WORKSHOP1_REDUX.md** — Workshop 1 Redux: The Fast Path (self-study, ~45 min, does everything Workshop 1 did using Spore.host)
 
 ### For Instructors
 
 - **INSTRUCTOR_NOTES.md** — Teaching guide, timing, troubleshooting
 - **INSTRUCTOR_LIVE_DEMO.md** — What to show on the projector at each step
+
+### Workshop 1 Redux
+
+- **WORKSHOP1_REDUX.md** — Self-study companion: same labs as Workshop 1, using Spore.host instead of the Console. 45–60 minutes. Requires Workshop 1 or equivalent.
 
 ### Workshop 2
 
