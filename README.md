@@ -16,16 +16,12 @@
 - **CONSOLE_QUICK_REFERENCE.md** — Where to find things in the AWS Console
 - **REMOTE_ACCESS_AND_TRANSFER.md** — SSH connection, Jupyter port forwarding, rclone, Cyberduck, WinSCP, VS Code Remote
 - **SPOREHOST_TEASER.md** — spore.host quick start (post-workshop bonus)
-- **WORKSHOP1_REDUX.md** — Workshop 1 Redux: The Fast Path (self-study, ~45 min, does everything Workshop 1 did using spore.host)
+- **WORKSHOP1_REDUX.md** — Workshop 1 Redux: The Fast Path (self-study, 45–60 minutes, does everything Workshop 1 did using spore.host)
 
 ### For Instructors
 
 - **INSTRUCTOR_NOTES.md** — Teaching guide, timing, troubleshooting
 - **INSTRUCTOR_LIVE_DEMO.md** — What to show on the projector at each step
-
-### Workshop 1 Redux
-
-- **WORKSHOP1_REDUX.md** — Self-study companion: same labs as Workshop 1, using spore.host instead of the Console. 45–60 minutes. Requires Workshop 1 or equivalent.
 
 ### Workshop 2
 
@@ -125,7 +121,7 @@ No SSH client or local AWS CLI installation needed — the workshop uses EC2 Ins
 
 ## Post-Workshop Follow-Up
 
-**Same day**: Share workshop materials, remind participants to check AWS credits and confirm GDEW is active on their account.
+**Same day**: Share workshop materials, remind participants to check AWS credits (GDEW is already applied through CU's agreement — nothing to do).
 
 **This week**: Office hours (optional). Share AWS Research Credits application link.
 
@@ -139,8 +135,6 @@ No SSH client or local AWS CLI installation needed — the workshop uses EC2 Ins
 - GDEW Information: https://aws.amazon.com/government-education/research-and-technical-computing/data-egress-waiver/
 - CU Boulder Research Computing: https://www.colorado.edu/rc/
 - spore.host GitHub: https://github.com/scttfrdmn/mycelium
-
----
 
 ---
 

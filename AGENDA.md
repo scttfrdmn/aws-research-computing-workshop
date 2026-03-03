@@ -343,7 +343,7 @@ aws ec2 terminate-instances --instance-ids $(
 3. Set up budget alerts for your real account
 
 **This Month**:
-1. Use Spot instances for your batch processing
+1. Try Spot instances for batch processing — review checkpointing first (see SPOREHOST_TEASER.md)
 2. Move old data to Glacier (save 90%)
 3. Share what you learned with lab mates
 
@@ -354,8 +354,6 @@ aws ec2 terminate-instances --instance-ids $(
 **Thank you for attending!** 🎉
 
 **Remember**: Tag everything, check your credits, GDEW credit is already applied — and terminate your instances!
-
----
 
 ---
 
