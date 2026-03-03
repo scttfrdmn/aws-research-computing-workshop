@@ -196,6 +196,7 @@ spawn start --job-array-name my-analysis   # Resume all 10
 
 ```bash
 truffle find <natural language>     # Search by hardware description
+truffle search <pattern>            # Regex/wildcard search (e.g., "p5\.*", "m7i.large")
 truffle spot <pattern>              # Show Spot prices
 truffle spot <pattern> --sort-by-price | spawn --spot --ttl Xh  # Pipe to launch
 truffle quotas --family Standard    # Check vCPU quotas
