@@ -248,7 +248,8 @@ The Console is the primary method. A CLI sidebar follows for those who want to a
 - *t3 instances are for web servers, not research — they'll frustrate you when you try real workloads*
 
 **Step 4: Key pair**
-- **"Proceed without a key pair"** — we'll connect using EC2 Instance Connect (browser-based, no key file needed)
+- From the dropdown, select **"Proceed without a key pair"** — we'll connect using EC2 Instance Connect (browser-based, no key file needed)
+- *If you skip this and click Launch without selecting anything, a confirmation dialog will appear — click **"Proceed without key pair"** there instead. Either path gets you to the same place.*
 - *If you already have an AWS key pair, you can select it — either works*
 
 **Step 5: Network settings**
@@ -275,15 +276,21 @@ The Console is the primary method. A CLI sidebar follows for those who want to a
 
 **Step 9: Connect to your instance**
 
-1. In EC2 → Instances, select your running instance
-2. Click **"Connect"** (top right)
-3. Choose **"EC2 Instance Connect"** tab → click **"Connect"**
+1. In EC2 → Instances, check the box next to your running instance
+2. Click **"Connect"** (in the action bar above the instance list) — this opens the "Connect to instance" page
+3. Click the **"EC2 Instance Connect"** tab (first tab on the left)
+4. Leave all settings as default: Connection type = Public IP, Username = ec2-user
+5. Click the orange **"Connect"** button
 
-![EC2 Instance Connect tab selected in the Connect dialog](SCREENSHOTS/05-instance-connect-tab.png)
+> ⚠️ **Wrong tab?** The page may open on "SSM Session Manager" — if you see DHMC/SSM error messages, click **EC2 Instance Connect** (first tab on the left) instead.
 
-4. A terminal opens in your browser — you're in.
+![EC2 Instance Connect tab selected, Connect button visible](SCREENSHOTS/05-instance-connect-tab.png)
+
+6. A terminal opens in your browser — you're in.
 
 > **EC2 Instance Connect** is browser-based and requires no SSH keys or local software. It works because `workshop-sg` allows port 22 and your instance has a public IP.
+>
+> 💡 **Check the IAM role**: The Connect page shows a summary bar with Instance ID, VPC ID, Security groups, and IAM role. If IAM role shows "–", your instance doesn't have `ec2-workshop-role` attached — S3 commands will fail with Access Denied. Stop the instance, attach the role under Actions → Security → Modify IAM role, then start it again.
 
 > 💡 **While you're here — start this now.** Run the following in your Instance Connect terminal. It takes about 60 seconds and will be ready by Lab 2:
 > ```bash
@@ -355,12 +362,12 @@ aws ec2-instance-connect ssh --instance-id $INSTANCE_ID
 
 1. EC2 → Instances
 2. Select your instance
-3. **Actions** → Instance State → **Stop instance**
+3. **Instance state** → **Stop instance**
 4. Wait 30-60 seconds (state changes to "stopped")
 
 **Later**: Start it again
 1. Select stopped instance
-2. **Actions** → Instance State → **Start instance**
+2. **Instance state** → **Start instance**
 3. EC2 Instance Connect works fine after restart — it finds the new IP automatically
 
 **💡 Pro tips**:
@@ -631,8 +638,9 @@ aws s3 cp s3://$BUCKET_NAME/results/results.csv ./
 #### EC2: Tag-Based Cleanup
 
 **Console**:
-1. EC2 → Instances → filter: **Tag: Workshop = cu-boulder-2026**
-2. Select all → Actions → Instance State → **Terminate instance**
+1. EC2 → Instances → click the search bar → type `Workshop`
+2. A dropdown appears showing Workshop tag values — click **"Workshop = All values"**
+3. Select all → **Instance state** → **Terminate (delete) instance**
 
 ![Instances filtered by Workshop tag with all selected for termination](SCREENSHOTS/06-tag-filter-cleanup.png)
 
@@ -672,7 +680,7 @@ aws s3 rb s3://$BUCKET_NAME
 echo "S3 cleanup complete!"
 ```
 
-💡 **Why this works**: Every resource you created in this workshop has the tag `Workshop=cu-boulder-2026`. That's why we added it in Lab 1. Tags = one-command cleanup.
+💡 **Why this works**: Every resource you created has the tag `Workshop=cu-boulder-2026`. Typing `Workshop` in the search bar lets the console find all instances with that tag key — no need to know the exact value.
 
 ---
 

@@ -77,7 +77,7 @@ Capture these during a test run. Drop the files here with the names below.
 
 **What**: The Connect dialog for an EC2 instance, with the "EC2 Instance Connect" tab selected
 
-**How to get there**: EC2 → Instances → select a running instance → click "Connect" button (top right) → the Connect dialog opens with multiple tabs
+**How to get there**: EC2 → Instances → check the box next to a running instance → click "Connect" (action bar above the list) → the Connect dialog opens with multiple tabs
 
 **What to show**: All four tabs visible — "EC2 Instance Connect" (selected/active), "Session Manager", "EC2 serial console", "SSH client" — with EC2 Instance Connect tab highlighted
 
@@ -91,12 +91,12 @@ Capture these during a test run. Drop the files here with the names below.
 
 **What**: The EC2 Instances list filtered by the Workshop tag, showing only workshop instances selected
 
-**How to get there**: EC2 → Instances → click the search/filter bar → filter by Tag → Key: `Workshop`, Value: `cu-boulder-2026` → all workshop instances appear → select all checkboxes
+**How to get there**: EC2 → Instances → click the search bar → type `Workshop` → dropdown appears → click **"Workshop = All values"** → all workshop instances appear → select all checkboxes
 
 **What to show**: The filtered list with:
-- The active filter badge visible at the top: "Workshop : cu-boulder-2026"
+- The active filter chip visible at the top: "Workshop = cu-boulder-2026 ×"
 - One or more instances checked (checkbox column)
-- Enough of the Actions menu visible to suggest "Terminate" is next
+- **Instance state** button visible in the action bar (used for Terminate)
 
 **Annotate**: Red box on the filter badge. Label: "This is why we tagged everything"
 

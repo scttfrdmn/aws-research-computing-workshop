@@ -103,7 +103,7 @@ No SSH client or local AWS CLI installation needed — the workshop uses EC2 Ins
 - [ ] Test AV / screen sharing
 - [ ] Write WiFi password on whiteboard
 - [ ] Open AWS Console in browser, set region to us-west-2
-- [ ] Have CloudShell tab ready
+- [ ] Open CloudShell: click `>_` in nav bar (bottom panel) — optionally expand to separate tab with ⤢ icon
 
 ---
 

@@ -2,7 +2,7 @@
 
 **For the instructor.** What to show on the projector at each step, what to highlight, and what participants should be watching for.
 
-**Setup**: Share your screen showing the AWS Console. Use browser zoom 100%, light mode. Have CloudShell open in a separate browser tab.
+**Setup**: Share your screen showing the AWS Console. Use browser zoom 100%, light mode. Have CloudShell ready as a bottom panel or separate tab.
 
 ---
 
@@ -10,7 +10,7 @@
 
 **Have open and ready**:
 - AWS Console logged in, region set to **US West (Oregon)**
-- CloudShell tab ready (`>_` icon clicked, shell initialized)
+- CloudShell ready: click `>_` in the nav bar → opens as a **bottom panel**. To show on a projector more easily, click the **⤢ expand icon** in the CloudShell panel to open it in a separate browser tab.
 - QUICK_REFERENCE.md open in another tab (for CLI sidebars)
 
 ---
@@ -42,7 +42,7 @@
 ---
 
 ### Show: CloudShell auth check
-- Switch to CloudShell tab
+- Click `>_` in the nav bar (opens CloudShell as a bottom panel) or switch to your CloudShell tab if already popped out
 - Run: `aws sts get-caller-identity`
 - **Highlight**: The Account and UserId fields in the response
 - Say: "This tells you you're authenticated. If you get an error here, raise your hand."
@@ -246,10 +246,11 @@ head results.csv
 ## Lab 2, Part C: Cleanup
 
 ### Show: Tag-based EC2 cleanup
-- EC2 → Instances → Filter: Tag → Workshop = cu-boulder-2026
-- **Highlight**: The filter reducing the list to only workshop instances
-- Select all → Actions → Terminate instance
-- Say: "This is why we tagged everything. One filter, select all, done. A team of 20 researchers could clean up in 30 seconds."
+- EC2 → Instances → click the search bar → type `Workshop` → dropdown appears → click **"Workshop = All values"**
+- **Highlight**: The active filter chip that appears: `Workshop = cu-boulder-2026 ×`
+- **Highlight**: Only workshop instances are now visible
+- Check all → **Instance state** → **Terminate (delete) instance**
+- Say: "This is why we tagged everything. Type the tag name, one click, all your instances. A team of 20 researchers could clean up in 30 seconds."
 
 ---
 

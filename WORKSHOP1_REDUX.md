@@ -199,7 +199,7 @@ Same loop. Same commands. The instance you're on was launched in 60 seconds with
 
 ## Lab 2C Redux: Cleanup (5 minutes)
 
-**Workshop 1**: EC2 → filter by Workshop tag → select all → Actions → Terminate. Then separately empty and delete S3 bucket.
+**Workshop 1**: EC2 → filter by Workshop tag → select all → **Instance state** → **Terminate (delete) instance**. Then separately empty and delete S3 bucket.
 
 **Workshop 1 Redux**:
 

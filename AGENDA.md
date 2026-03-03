@@ -123,7 +123,7 @@ aws ec2 run-instances \
 | Stop | ~$0.64/mo (storage only, 8 GB) | ✅ Kept |
 | Terminate | $0 | ❌ Gone |
 
-**Console**: EC2 → your instance → Actions → Instance State → **Stop**
+**Console**: EC2 → your instance → **Instance state** → **Stop instance**
 
 **💻 CLI Sidebar**:
 ```bash
@@ -250,8 +250,8 @@ aws s3 cp s3://$BUCKET_NAME/test-data.txt ./
 #### Part C: Cleanup (10 minutes)
 
 **EC2** (tag-based — this is why we tagged):
-1. EC2 → Instances → filter: **Tag: Workshop = cu-boulder-2026**
-2. Select all → Actions → Instance State → **Terminate instance**
+1. EC2 → Instances → click the search bar → type `Workshop` → click **"Workshop = All values"**
+2. Select all → **Instance state** → **Terminate (delete) instance**
 
 **S3** (manual):
 1. S3 → click your bucket → **Empty** → confirm → **Empty**

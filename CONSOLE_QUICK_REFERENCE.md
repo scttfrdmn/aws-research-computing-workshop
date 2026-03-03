@@ -10,6 +10,11 @@
 
 **Search Bar** (Top center): Type service name (EC2, S3, etc.) - fastest way to navigate!
 
+**CloudShell** (Browser-based terminal — no install needed!):
+- Click the `>_` icon in the top nav bar → opens as a **bottom panel**
+- To use in a separate browser tab: click the **⤢ expand icon** in the panel
+- Pre-authenticated: no `aws configure` needed
+
 **Keyboard Shortcuts**:
 - `G` then `E` → Go to EC2
 - `G` then `S` → Go to S3
@@ -27,14 +32,14 @@
 
 **Instances Dashboard** (EC2 → Instances)
 ```
-┌─────────────────────────────────────────────┐
-│ [Launch Instance]  [Actions ▼]  [Connect]  │
-├─────────────────────────────────────────────┤
-│ Filters: Name | Type | State | Tag         │
-├─────────────────────────────────────────────┤
-│ Instance ID | Name | Instance State | Type │
-│ i-abc123   | research-01 | Running   | m6a.│
-└─────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────┐
+│ [Connect] [Instance state ▼] [Actions ▼] [Launch ▼] │
+├──────────────────────────────────────────────────────┤
+│ Find Instance by attribute or tag (case-sensitive)   │
+├──────────────────────────────────────────────────────┤
+│ Name | Instance ID | Instance state | Instance type  │
+│ research-01 | i-abc123 | Running | m6a.xlarge        │
+└──────────────────────────────────────────────────────┘
 ```
 **What to look for**:
 - Green "Running" = instance is up
@@ -98,9 +103,9 @@
 ```
 
 **How to connect**:
-1. Select instance → Click "Connect" button (top right)
-2. Choose "EC2 Instance Connect" tab
-3. Click "Connect" → Browser terminal opens!
+1. Check the box next to your instance → click "Connect" (in the action bar above the list)
+2. Click the "EC2 Instance Connect" tab (first tab — ignore SSM Session Manager)
+3. Leave defaults (Public IP, username ec2-user) → click orange "Connect" → browser terminal opens!
 
 ---
 
@@ -243,19 +248,18 @@ Path: Billing → Cost Explorer
 
 ### Find Resources by Tag
 ```
-EC2 → Instances → Add filter
+EC2 → Instances → click the search bar → type "Workshop"
+→ dropdown shows Workshop values → click "Workshop = All values"
 
 ┌─────────────────────────────────────────────┐
-│ Filter: [Tag: Workshop           ▼]       │
-│ Value:  [cu-boulder-2026          ]       │
+│ [Workshop = cu-boulder-2026  ×] Clear filt │  ← active filter chip
 ├─────────────────────────────────────────────┤
-│ Matching instances:                        │
-│ ☑ i-abc123  research-compute-01            │
-│ ☑ i-def456  research-compute-02            │
-│ ☑ i-ghi789  research-spot-01               │
+│ ☑ i-abc123  research-compute-01  Running   │
+│ ☑ i-def456  research-compute-02  Running   │
+│ ☑ i-ghi789  research-spot-01     Running   │
 └─────────────────────────────────────────────┘
 
-[Select all] → [Actions ▼] → [Terminate instance]
+[Select all] → [Instance state ▼] → [Terminate (delete) instance]
 ```
 
 **This is why we tag everything!** One filter finds all workshop resources.
@@ -299,7 +303,7 @@ EC2 → Instances → Add filter
 | Create S3 bucket | S3 → Create bucket |
 | Add lifecycle policy | S3 → Select bucket → Management → Create rule |
 | Filter by tags | Any service → Add filter → Tag:Workshop |
-| Terminate resources | Select → Actions → Terminate |
+| Terminate resources | Select → Instance state → Terminate (delete) instance |
 
 ---
 

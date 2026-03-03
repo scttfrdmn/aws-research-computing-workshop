@@ -75,6 +75,9 @@ Point out: "Five steps before anything launches. This overhead exists every time
 - [ ] If stuck >5 min, move them to next section, help after
 
 **Common Issues**:
+- **"Create a key pair or proceed without a key pair" dialog appears at launch**: Normal — participant skipped the key pair dropdown. Tell them to click "Proceed without key pair" in the dialog, then "Launch instance"
+- **Participant landed on "SSM Session Manager" tab** (shows DHMC/SSM errors): Wrong tab — click "EC2 Instance Connect" (first tab on the left)
+- **IAM role shows "–" in the Connect page header**: ec2-workshop-role wasn't attached at launch — stop instance → Actions → Security → Modify IAM role → attach ec2-workshop-role → start instance
 - **Instance Connect fails**: Auto-assign public IP was left on "Disable" — stop instance, can't fix after launch; terminate and relaunch with IP set to Enable
 - **Instance Connect button greyed out**: Instance not fully running yet — wait 30 more seconds
 - **"No default VPC"**: VPC Console → Actions → Create default VPC (30 seconds)
