@@ -638,6 +638,88 @@ aws s3 cp s3://$BUCKET_NAME/results/results.csv ./
 
 ---
 
+#### 🐍 Alternative: Read and Write S3 Directly from Python
+
+The pattern above uses the AWS CLI to move files in and out of S3, then works on local copies. In many research workflows — especially notebooks and pipelines — it's cleaner to have Python talk to S3 directly, with no intermediate files.
+
+Two options:
+
+**Option 1: pandas + s3fs** (recommended — feels like local files)
+
+`s3fs` teaches pandas to understand `s3://` paths. Install it first:
+
+```bash
+mamba install -y s3fs   # adds ~5 seconds to the existing install step
+```
+
+Then your analysis script reads and writes S3 as if it were a local filesystem:
+
+```python
+import numpy as np
+import pandas as pd
+
+BUCKET = "rcws-yourname-0302"   # replace with your bucket name
+
+# Read directly from S3 — no local copy needed
+# (Works with any pandas reader: read_csv, read_parquet, read_json, etc.)
+with pd.option_context("mode.chained_assignment", None):
+    text = open(f"/dev/stdin").read()   # placeholder — swap for your real source
+
+# Simulating: 100 samples x 50 measurements
+np.random.seed(42)
+data = np.random.exponential(scale=10.0, size=(100, 50))
+results = pd.DataFrame({
+    "mean": data.mean(axis=0),
+    "std":  data.std(axis=0),
+})
+
+# Write directly to S3 — no local copy, no aws s3 cp
+results.to_csv(f"s3://{BUCKET}/results/results.csv", index=False)
+print(f"Results written to s3://{BUCKET}/results/results.csv")
+
+# Reading back is the same:
+# df = pd.read_csv(f"s3://{BUCKET}/results/results.csv")
+```
+
+> 💡 This pattern works identically in a Jupyter notebook running on your instance — just use `s3://` paths anywhere pandas accepts a filename. No CLI required.
+
+---
+
+**Option 2: boto3** (no extra dependency — boto3 is pre-installed on Amazon Linux)
+
+Use this when you need fine-grained control (streaming large objects, presigned URLs, multipart uploads) or can't install s3fs:
+
+```python
+import boto3
+import io
+import numpy as np
+
+BUCKET = "rcws-yourname-0302"
+
+s3 = boto3.client("s3")
+
+# Read an object from S3 into memory
+obj = s3.get_object(Bucket=BUCKET, Key="test-data.txt")
+content = obj["Body"].read().decode("utf-8")
+print(f"Input: {content.strip()}")
+
+# Run analysis
+np.random.seed(42)
+data = np.random.exponential(scale=10.0, size=(100, 50))
+
+# Write results directly to S3 — no temp file
+buf = io.BytesIO()
+np.savetxt(buf,
+    np.column_stack([data.mean(axis=0), data.std(axis=0)]),
+    delimiter=",", header="mean,std", comments="")
+s3.put_object(Bucket=BUCKET, Key="results/results-boto3.csv", Body=buf.getvalue())
+print(f"Results written to s3://{BUCKET}/results/results-boto3.csv")
+```
+
+> **boto3 vs s3fs**: boto3 is more explicit and needs no extra install. s3fs is more ergonomic for data science workflows where you want pandas/numpy to "just work" with S3 paths. Use whichever fits how you write code.
+
+---
+
 ### Part C: Clean Up (10 min)
 
 **IMPORTANT**: Always terminate instances when done!
