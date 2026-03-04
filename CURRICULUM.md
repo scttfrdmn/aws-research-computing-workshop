@@ -175,9 +175,6 @@ A security group is a firewall that controls what traffic can reach your instanc
 
 **Console**:
 1. Type `Security Groups` in the top search bar → click **EC2 > Security Groups**
-
-![Search bar showing EC2 > Security Groups result](SCREENSHOTS/01-security-group-search.png)
-
 2. Click **Create security group**
 3. **Name**: `workshop-sg`
 4. **Description**: `Workshop: allow SSH`
@@ -230,8 +227,6 @@ The Console is the primary method. A CLI sidebar follows for those who want to a
 
 > **⚠️ AWS UX warning**: One critical setting is buried at the bottom of the launch page under **"Advanced details."** The name implies it's optional — it's not. Before clicking Launch, scroll to the bottom, expand that section, and set your IAM role. We'll call this out explicitly in Step 7 below.
 
-![Advanced details section collapsed at bottom of launch page](SCREENSHOTS/02-advanced-details-collapsed.png)
-
 #### AWS Console — Launch an Instance
 
 **Step 1: Navigate to EC2**
@@ -260,9 +255,7 @@ The Console is the primary method. A CLI sidebar follows for those who want to a
 **Step 5: Network settings**
 - Click **"Edit"**
 - **Security group**: Select existing → choose **`workshop-sg`** (from Lab 0)
-- **Auto-assign public IP**: change to **"Enable"** — set this explicitly, 
-
-![Auto-assign public IP dropdown set to Enable](SCREENSHOTS/03-public-ip-enable.png)
+- **Auto-assign public IP**: change to **"Enable"** — set this explicitly
 
 > **Why the public IP matters**: EC2 Instance Connect requires a public IP to reach your instance. If this is left on "Disable", Instance Connect will fail with no useful error message. Always set it explicitly to Enable.
 
@@ -273,8 +266,6 @@ The Console is the primary method. A CLI sidebar follows for those who want to a
 **Step 7: Advanced details → IAM instance profile** *(scroll to bottom of page, expand "Advanced details")*
 - Find **"IAM instance profile"** → select **`ec2-workshop-role`**
 - Without this, your instance gets "Access Denied" on any S3 command.
-
-![Advanced details expanded showing IAM role selected](SCREENSHOTS/04-advanced-details-expanded.png)
 
 **Step 8: Launch**
 - Click **"Launch instance"** → wait ~60 seconds until state shows **"running"**
@@ -288,8 +279,6 @@ The Console is the primary method. A CLI sidebar follows for those who want to a
 5. Click the orange **"Connect"** button
 
 > ⚠️ **Wrong tab?** The page may open on "SSM Session Manager" (previously labeled "Session Manager") — if you see DHMC/SSM error messages, click **EC2 Instance Connect** (first tab on the left) instead.
-
-![EC2 Instance Connect tab selected, Connect button visible](SCREENSHOTS/05-instance-connect-tab.png)
 
 6. A terminal opens in your browser — you're in.
 
@@ -731,8 +720,6 @@ print(f"Results written to s3://{BUCKET}/results/results-boto3.csv")
 2. A dropdown appears showing operators — click **"Workshop ="** (Equals)
 3. A second dropdown appears with values — click **"All values"**
 4. Select all → **Instance state** → **Terminate (delete) instance**
-
-![Instances filtered by Workshop tag with all selected for termination](SCREENSHOTS/06-tag-filter-cleanup.png)
 
 #### S3: Manual Cleanup
 
