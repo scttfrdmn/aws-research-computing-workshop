@@ -12,6 +12,8 @@
 
 - **AGENDA.md** — Schedule and overview (start here)
 - **CURRICULUM.md** — Complete lab guide with all steps and commands
+- **CURRICULUM_LT.md** — Launch Template variant: automated instance setup via user-data
+- **AUTO_STOP.md** — Cron script that stops an idle instance automatically (no logins, no CPU/network load)
 - **QUICK_REFERENCE.md** — CLI command cheat sheet (printable)
 - **CONSOLE_QUICK_REFERENCE.md** — Where to find things in the AWS Console
 - **REMOTE_ACCESS_AND_TRANSFER.md** — SSH connection, Jupyter port forwarding, rclone, Cyberduck, WinSCP, VS Code Remote

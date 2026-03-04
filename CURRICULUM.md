@@ -104,7 +104,7 @@ Think of AWS this way:
 - **S3** = object storage that scales without capacity limits
 - **Instance types** = choosing the size of machine to rent, for as long as you need it
 
-The main adjustment: you're renting hardware, not owning it. The goal is to spin it up when you need it and shut it down when you don't.
+The main adjustment: you're renting hardware, not owning it. The goal is to spin it up when you need it and shut it down when you don't. See **AUTO_STOP.md** for a cron-based script that does this automatically — it watches for idle CPU, network, and login activity and stops the instance when you've walked away.
 
 ---
 

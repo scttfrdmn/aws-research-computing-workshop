@@ -115,7 +115,7 @@ This role lets your instance access S3. Create it once — the Launch Template w
 
 > **This lab is also one-time.** The Launch Template stores your preferred configuration — AMI, instance type, storage, IAM role, security group, and the user-data script that installs your software at boot. Every future launch takes 30 seconds.
 
-A Launch Template stores a named configuration. Launch from it and every setting is pre-filled — you only add a name, tags, and enable the public IP.
+A Launch Template stores a named configuration. Launch from it and every setting is pre-filled — you only add a name, tags, and enable the public IP. The user-data section at the end of this lab also installs an auto-stop script (see **AUTO_STOP.md**) so instances shut themselves down after a configurable idle period.
 
 ### Step 1: Navigate to Launch Templates
 
