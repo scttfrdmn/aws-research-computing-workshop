@@ -37,6 +37,7 @@
 
 **Key messages**:
 - "AWS is powerful but not beginner-friendly — that's why we go step by step"
+- **AWS augments campus HPC — it doesn't replace it.** Keep using your allocation. Use AWS when you've hit a wall: quota full, GPU queue backed up, collaborator outside the university, a deadline the scheduler can't meet, or when you need hardware your campus doesn't have (latest GPUs, high-memory nodes, ARM, FPGAs, quantum devices).
 - **Campus HPC users**: EC2 = dedicated node (no queue), S3 = shared data layer (object storage, not a filesystem), Spot = preemptible queue you control
 - **Laptop users**: EC2 = remote computer that doesn't need to stay awake, S3 = a hard drive that scales
 

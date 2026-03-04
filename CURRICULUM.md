@@ -93,7 +93,9 @@ Think of AWS this way:
 - **IAM roles** = permissions (think: group ownership on a shared filesystem)
 - **Spot instances** = like a preemptible queue, but you control it
 
-The main adjustment: you're billed by the hour, so you'll learn to stop instances when not in use. That's the tradeoff for instant access.
+The main adjustment: you're billed by the second, so you'll learn to stop instances when not in use. That's the tradeoff for instant access.
+
+AWS doesn't replace campus HPC — it augments it. Keep using your allocation for routine batch work. Use AWS when you've hit a wall: quota exhausted, GPU queue full, collaborator outside the university, a deadline that can't wait for the scheduler, or when you need hardware your campus simply doesn't have — the latest GPU generation, a terabyte of RAM, ARM processors, FPGAs, or quantum devices.
 
 **If you work on your laptop**:
 
@@ -110,12 +112,15 @@ The main adjustment: you're renting hardware, not owning it. The goal is to spin
 
 ### Two tools, one researcher
 
+Campus HPC and AWS are not competitors — they're complementary. The goal is knowing which tool fits the situation, not switching from one to the other permanently.
+
 | Situation | Use Cloud | Use Campus HPC |
 |---|---|---|
 | Queue wait > 2 hours | ✅ | |
 | Need more cores than campus quota allows | ✅ | |
 | Collaborators outside CU need access | ✅ | |
 | GPU workload when campus GPUs are busy | ✅ | |
+| Hardware campus doesn't have (latest GPUs, high-memory, ARM, FPGA, quantum) | ✅ | |
 | Routine batch jobs within campus quota | | ✅ |
 | Long-running 24/7 services | | ✅ (or dedicated server) |
 
@@ -127,7 +132,7 @@ The main adjustment: you're renting hardware, not owning it. The goal is to spin
 | GPU (g5.xlarge), 4 hours | Free (if quota permits) | $4.02 | $1.20 |
 | 1TB storage, 1 month | Free (campus) | $23.00 | — |
 
-**Key insight**: Cloud is not cheaper than free campus resources — it's available *right now*, without a queue.
+**AWS charges per second** (with a 60-second minimum), not per hour or day — so a job that runs for 90 seconds costs less than 2 minutes of compute.
 
 ---
 

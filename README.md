@@ -29,6 +29,10 @@
 
 ---
 
+## Philosophy
+
+AWS is not a replacement for campus HPC — it's an augmentation. This workshop helps researchers recognize when cloud is the right tool: quota exhausted, GPU queue backed up, collaborators outside the university, a deadline that can't wait for the scheduler, or hardware your campus simply doesn't have (latest GPUs, terabytes of RAM, ARM processors, FPGAs, quantum devices). For everything else, keep using your campus allocation.
+
 ## Learning Objectives
 
 Participants will:
