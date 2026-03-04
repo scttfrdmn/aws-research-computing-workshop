@@ -115,7 +115,7 @@ This role lets your instance access S3. Create it once — the Launch Template w
 
 > **This lab is also one-time.** The Launch Template stores your preferred configuration — AMI, instance type, storage, IAM role, security group, and the user-data script that installs your software at boot. Every future launch takes 30 seconds.
 
-A Launch Template is how production research workflows work: define your environment once, reproduce it instantly.
+A Launch Template stores a named configuration. Launch from it and every setting is pre-filled — you only add a name, tags, and enable the public IP.
 
 ### Step 1: Navigate to Launch Templates
 
@@ -721,7 +721,7 @@ See [CURRICULUM.md — Know About Spot Instances](CURRICULUM.md#-know-about-spot
 
 ## Clean Up
 
-**IMPORTANT**: Always terminate instances when done.
+Terminate instances when you're done with them. Stopped instances still charge for storage; terminated instances charge nothing.
 
 ### EC2: Tag-based cleanup
 
@@ -730,7 +730,7 @@ See [CURRICULUM.md — Know About Spot Instances](CURRICULUM.md#-know-about-spot
 2. Dropdown appears → click **"Workshop ="** → click **"All values"**
 3. Select all → **Instance state** → **Terminate (delete) instance**
 
-> **The Launch Template itself has no running cost** — keep it. Next time you want a configured instance, you're 30 seconds away.
+> The Launch Template has no cost — keep it. Instance launch takes ~60 seconds to reach running state, plus a few minutes for cloud-init on first use (none if using a custom AMI).
 
 ### AMI & Snapshot: Optional cleanup
 
@@ -823,12 +823,25 @@ echo "S3 cleanup complete!"
 
 ### Cost Estimation for Your Research
 
-| Scenario | Monthly Cost |
-|---|---|
-| 2 × m6a.xlarge, 40 hrs/month + 100 GB S3 | ~$17 |
-| 1 × g5.xlarge (A10G GPU), 20 hrs/month + 500 GB S3 | ~$32 |
+**AWS bills by the second** (60-second minimum):
 
-**AWS charges per second** (60-second minimum) — a 90-second job costs less than 2 minutes of compute.
+| Instance | Per hour | Per minute | Per second |
+|---|---|---|---|
+| m6a.xlarge (workshop instance) | $0.173 | $0.0029 | $0.000048 |
+| g5.xlarge (GPU) | $1.006 | $0.0168 | $0.000279 |
+| m6a.xlarge Spot | ~$0.052 | ~$0.0009 | ~$0.000014 |
+
+**Example: CPU compute, moderate use**
+- 2 × m6a.xlarge × 40 hrs/month = $13.84 ($0.173/hr × 2 × 40)
+- 100 GB S3 storage = $2.30 ($0.023/GB)
+- 1 TB data transfer in = $0 (inbound is free)
+- 10 GB data transfer out = $0.90 ($0.09/GB)
+- **Total: $17.04/month**
+
+**Example: GPU training, moderate use**
+- 1 × g5.xlarge × 20 hrs/month = $20.12 ($1.006/hr × 20)
+- 500 GB S3 storage = $11.50 ($0.023/GB)
+- **Total: $31.62/month**
 
 ---
 
@@ -863,9 +876,9 @@ echo "S3 cleanup complete!"
 > **See SPOREHOST_TEASER.md for the full reference and Workshop 2 preview.**
 
 You've now seen three levels of AWS workflow:
-- **Console**: Easy to learn, manual every time (CURRICULUM.md)
-- **Launch Template**: One-time setup, 30-second launches (this document)
-- **spore.host**: One command, zero configuration
+- **Console**: Explicit, manual every time (CURRICULUM.md)
+- **Launch Template**: One-time configuration, reusable launches (this document)
+- **spore.host**: Single command, configuration handled for you
 
 ```bash
 # Install
@@ -883,6 +896,6 @@ spawn
 truffle spot "m7i.*" --sort-by-price | spawn --spot --ttl 8h
 ```
 
-> "Console for learning. Launch Templates for repeatable research. **spore.host for daily work.**"
+> "Console for learning. Launch Templates for repeatable setups. spore.host for daily research work."
 
 📄 **See SPOREHOST_TEASER.md** for: installation, all commands, real research examples, and a preview of Workshop 2.

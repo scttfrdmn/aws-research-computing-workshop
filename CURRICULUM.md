@@ -14,9 +14,7 @@
 
 It runs 200+ services with thousands of configuration options, designed by infrastructure engineers for infrastructure engineers. When AWS says "easy," they mean "easy if you already know what a VPC, IAM role, and security group are."
 
-The good news: you only need about 5% of AWS to do serious research computing — EC2 for compute, S3 for storage, a bit of IAM for permissions, and some safety features so you don't get a surprise bill. That's this workshop.
-
-AWS is powerful enough to run the internet. Your genomics pipeline is well within reach.
+You only need about 5% of AWS for research computing — EC2 for compute, S3 for storage, a bit of IAM for permissions, and a budget alert so you don't get a surprise bill. That's this workshop.
 
 ---
 
@@ -63,11 +61,11 @@ If you prefer a local terminal: macOS/Linux Terminal works as-is. Windows users 
 
 ## Introduction & Motivation (8 minutes)
 
-### AWS is for Netflix — and for you
+### What AWS is, and what you need from it
 
-AWS runs Netflix, Airbnb, NASA, and Amazon.com itself. It's engineered for scale most of us will never need. That's why it can feel overwhelming: you're looking at infrastructure designed to serve hundreds of millions of users, and you just want to run a GATK pipeline.
+AWS is a commercial cloud platform built for large-scale production services. It has more options than any researcher needs, which is why it can feel overwhelming. Most of that complexity is irrelevant here.
 
-Here's what actually matters for research computing:
+What matters for research computing:
 
 | What you need | AWS service | Plain English |
 |---|---|---|
@@ -102,9 +100,9 @@ AWS doesn't replace campus HPC — it augments it. Keep using your allocation fo
 Your analysis runs locally — limited by your RAM (probably 8-32 GB) and CPU (4-16 cores). Jobs run overnight and your laptop can't close. Moving to a bigger dataset means waiting a week for results.
 
 Think of AWS this way:
-- **EC2** = a powerful remote computer that doesn't need to stay awake
-- **S3** = a hard drive that doesn't fill up and doesn't fail
-- **Instance types** = choosing how powerful a machine to rent, for exactly as long as you need it
+- **EC2** = a remote computer you rent by the second
+- **S3** = object storage that scales without capacity limits
+- **Instance types** = choosing the size of machine to rent, for as long as you need it
 
 The main adjustment: you're renting hardware, not owning it. The goal is to spin it up when you need it and shut it down when you don't.
 
@@ -124,15 +122,23 @@ Campus HPC and AWS are not competitors — they're complementary. The goal is kn
 | Routine batch jobs within campus quota | | ✅ |
 | Long-running 24/7 services | | ✅ (or dedicated server) |
 
-**Cost reality**: Cloud is cost-effective for burst workloads.
+**Cost comparison** (campus HPC is free if available; AWS costs depend on usage):
 
 | Workload | Campus HPC | AWS On-Demand | AWS Spot |
 |---|---|---|---|
-| 8-core compute, 8 hours | Free (if available) | $3.20 | $0.96 |
+| m6a.xlarge (4 vCPU), 8 hours | Free (if available) | $1.38 | $0.42 |
 | GPU (g5.xlarge), 4 hours | Free (if quota permits) | $4.02 | $1.20 |
 | 1TB storage, 1 month | Free (campus) | $23.00 | — |
 
-**AWS charges per second** (with a 60-second minimum), not per hour or day — so a job that runs for 90 seconds costs less than 2 minutes of compute.
+**AWS bills by the second** (60-second minimum):
+
+| Instance | Per hour | Per minute | Per second |
+|---|---|---|---|
+| m6a.xlarge (workshop instance) | $0.173 | $0.0029 | $0.000048 |
+| g5.xlarge (GPU) | $1.006 | $0.0168 | $0.000279 |
+| m6a.xlarge Spot | ~$0.052 | ~$0.0009 | ~$0.000014 |
+
+A job that runs for 5 minutes on an m6a.xlarge costs $0.014. A job that runs for 8 hours costs $1.38. An instance left running over a 60-hour weekend costs $10.38.
 
 ---
 
@@ -333,16 +339,13 @@ aws ec2-instance-connect ssh --instance-id $INSTANCE_ID
 
 ---
 
-#### 💡 Stop and Restart Instances (Save Money When Not Using Them)
+#### Stop and Restart Instances
 
-**The Problem**: Running instances cost money 24/7, even when idle.
+A running instance accrues charges whether or not you're using it. Stop it when you're done for the day.
 
-**The Solution**: Stop instances when not using them!
-
-**Cost Savings**:
-- **Running**: Pay for compute + storage ($0.173/hour for m6a.xlarge = $125/month 24/7)
-- **Stopped**: Pay only for storage (~$0.64/month for 8 GB EBS volume)
-- **Terminated**: Pay nothing (but lose everything)
+- **Running**: compute + storage ($0.173/hr for m6a.xlarge — $124/month if left running 24/7)
+- **Stopped**: storage only (~$0.64/month for an 8 GB EBS volume)
+- **Terminated**: nothing (but all data on the instance is gone)
 
 **When to Stop vs Terminate**:
 | Action | When to Use | Cost | Data Persists? |
@@ -446,7 +449,7 @@ aws s3 cp test-data.txt s3://$BUCKET_NAME/
 
 ### Part A: Set Up Cost Alerts (15 min)
 
-> A forgotten instance running over a weekend costs ~$10 (m6a.xlarge × ~60 hours). A stopped-but-not-terminated instance for a month costs ~$0.64 in storage (8 GB default). This 5-minute setup is your safety net.
+> An m6a.xlarge left running over a 60-hour weekend costs $10.38. Stopped but not terminated: $0.64/month in storage. A budget alert emails you before either scenario gets out of hand.
 
 #### AWS Budgets - Console Method
 
@@ -504,7 +507,7 @@ aws budgets create-budget \
 
 #### Check Your AWS Credits (Console Method)
 
-**Many researchers have AWS credits but don't know it!**
+**Check whether you have AWS credits — many researchers do.**
 
 **Step 1: Navigate to Credits**
 1. Click on your account name (top right) → "Billing and Cost Management"
@@ -574,7 +577,7 @@ aws s3 cp 50GB-genome-data.tar.gz s3://$BUCKET_NAME/genomics/
 >    BUCKET_NAME="rcws-yourname-0302"  # same name you used in Lab 1 — replace 0302 with today's date
 >    ```
 
-This is the complete research workflow.
+This is the core research loop: pull data from S3, run analysis, push results back.
 
 **Activate miniforge and install numpy** (miniforge was installed during Lab 1):
 
@@ -623,7 +626,7 @@ echo "Results in S3."
 aws s3 cp s3://$BUCKET_NAME/results/results.csv ./
 ```
 
-*That's the complete loop: launch instance → pull data from S3 → run analysis → push results to S3 → retrieve anywhere. In real workflows you'd bake your software stack into a custom AMI or user-data script so the conda install happens automatically at launch.*
+*That's the loop: pull data from S3 → run analysis → push results back → retrieve from anywhere. In production workflows the software stack goes into a custom AMI or user-data script so the conda install happens automatically at launch — which is what CURRICULUM_LT.md covers.*
 
 ---
 
@@ -705,13 +708,13 @@ s3.put_object(Bucket=BUCKET, Key="results/results-boto3.csv", Body=buf.getvalue(
 print(f"Results written to s3://{BUCKET}/results/results-boto3.csv")
 ```
 
-> **boto3 vs s3fs**: boto3 is more explicit and needs no extra install. s3fs is more ergonomic for data science workflows where you want pandas/numpy to "just work" with S3 paths. Use whichever fits how you write code.
+> **boto3 vs s3fs**: boto3 needs no extra install and gives you fine-grained control. s3fs is higher-level — it lets pandas read and write S3 URLs the same way it handles local paths. Use whichever fits how you write code.
 
 ---
 
 ### Part C: Clean Up (10 min)
 
-**IMPORTANT**: Always terminate instances when done!
+Terminate instances when you're done with them. Stopped instances still charge for storage; terminated instances charge nothing.
 
 #### EC2: Tag-Based Cleanup
 
@@ -779,17 +782,17 @@ echo "S3 cleanup complete!"
 
 ### Cost Estimation for Your Research
 
-**Example Monthly Research Budget**:
-- 2 m6a.xlarge instances × 40 hours/month = $13.84
-- 100GB S3 storage = $2.30
-- 1TB data transfer in = $0 (free)
-- 10GB data transfer out = $0.90
-- **Total: ~$17/month**
+**Example: CPU compute, moderate use**
+- 2 × m6a.xlarge × 40 hrs/month = $13.84 ($0.173/hr × 2 × 40)
+- 100 GB S3 storage = $2.30 ($0.023/GB)
+- 1 TB data transfer in = $0 (inbound is free)
+- 10 GB data transfer out = $0.90 ($0.09/GB)
+- **Total: $17.04/month**
 
-**Example GPU Training**:
-- 1 g5.xlarge (A10G GPU) × 20 hours/month = $20.12
-- 500GB S3 storage = $11.50
-- **Total: ~$32/month**
+**Example: GPU training, moderate use**
+- 1 × g5.xlarge × 20 hrs/month = $20.12 ($1.006/hr × 20)
+- 500 GB S3 storage = $11.50 ($0.023/GB)
+- **Total: $31.62/month**
 
 ---
 
