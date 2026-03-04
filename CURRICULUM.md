@@ -41,7 +41,7 @@ The primary path is the AWS Console (point and click). CLI commands are shown as
 
 **The easiest way to run CLI commands — on any OS including Windows:**
 
-> **AWS CloudShell** — click the `>_` icon in the top navigation bar of the AWS Console. It's a browser-based Linux terminal, pre-authenticated, no installation needed. This is the recommended CLI option for this workshop.
+> **AWS CloudShell** — click the `>_` icon in the **bottom bar** of the AWS Console (labeled "CloudShell"). It's a browser-based Linux terminal, pre-authenticated, no installation needed. This is the recommended CLI option for this workshop.
 
 If you prefer a local terminal: macOS/Linux Terminal works as-is. Windows users need Git Bash or WSL.
 
@@ -151,9 +151,9 @@ Click the region name → select "US West (Oregon)."
 
 A VPC (Virtual Private Cloud) is the private network your instances run in. AWS creates a default one per region, but it can be missing in cleaned-up accounts.
 
-**Console**: Type "VPC" in the search bar → VPC Dashboard → look for "Default VPC: Yes" in the list.
+**Console**: Type "VPC" in the search bar → VPC Dashboard → click on the VPC ID → in the Details panel, confirm "Default VPC" shows "Yes".
 
-**CloudShell** (click `>_` in the top nav):
+**CloudShell** (click `>_` in the bottom bar):
 ```bash
 aws ec2 describe-vpcs --filters "Name=isDefault,Values=true" \
     --query 'Vpcs[0].VpcId' --output text
@@ -186,7 +186,7 @@ A security group is a firewall that controls what traffic can reach your instanc
 
 ### Step 4: Verify AWS CLI authentication (30 seconds)
 
-Open **CloudShell** (click `>_` in the top nav bar) and run:
+Open **CloudShell** (click `>_` in the bottom bar) and run:
 
 ```bash
 aws sts get-caller-identity
@@ -282,7 +282,7 @@ The Console is the primary method. A CLI sidebar follows for those who want to a
 4. Leave all settings as default: Connection type = Public IP, Username = ec2-user
 5. Click the orange **"Connect"** button
 
-> ⚠️ **Wrong tab?** The page may open on "SSM Session Manager" — if you see DHMC/SSM error messages, click **EC2 Instance Connect** (first tab on the left) instead.
+> ⚠️ **Wrong tab?** The page may open on "SSM Session Manager" (previously labeled "Session Manager") — if you see DHMC/SSM error messages, click **EC2 Instance Connect** (first tab on the left) instead.
 
 ![EC2 Instance Connect tab selected, Connect button visible](SCREENSHOTS/05-instance-connect-tab.png)
 
@@ -303,7 +303,7 @@ The Console is the primary method. A CLI sidebar follows for those who want to a
 
 #### 💻 CLI Sidebar: Launch an instance from the command line
 
-*Skip this if the Console worked for you. Use **AWS CloudShell** (click `>_` in the top nav bar) — no installation needed, works on any OS.*
+*Skip this if the Console worked for you. Use **AWS CloudShell** (click `>_` in the bottom bar) — no installation needed, works on any OS.*
 
 ```bash
 # Get the current Amazon Linux 2023 AMI for us-west-2 (recommended — always up to date)
@@ -456,6 +456,8 @@ aws s3 cp test-data.txt s3://$BUCKET_NAME/
 
 #### AWS Budgets - Console Method
 
+> ⚠️ **IAM permissions required**: If you're using an IAM user (not the root account), you may see "You need permissions" when navigating to Billing or Budgets. Your account administrator must enable IAM access to billing: Root account → Account → IAM user and role access to Billing information → Edit → Activate IAM Access. Ask your instructor if you hit this.
+
 **Step 1: Navigate to AWS Budgets**
 1. Search for "Billing" or "Budgets" in Console
 2. Click "Budgets" in left menu
@@ -519,7 +521,7 @@ aws budgets create-budget \
    - **Applied to date**: How much you've used
 
 **Common Credit Sources**:
-- AWS Research Credits Program (apply at aws.amazon.com/research-credits)
+- AWS Cloud Credit for Research (apply at aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/)
 - AWS Educate (for students/faculty)
 - Conference/event promotions
 
@@ -639,15 +641,16 @@ aws s3 cp s3://$BUCKET_NAME/results/results.csv ./
 
 **Console**:
 1. EC2 → Instances → click the search bar → type `Workshop`
-2. A dropdown appears showing Workshop tag values — click **"Workshop = All values"**
-3. Select all → **Instance state** → **Terminate (delete) instance**
+2. A dropdown appears showing operators — click **"Workshop ="** (Equals)
+3. A second dropdown appears with values — click **"All values"**
+4. Select all → **Instance state** → **Terminate (delete) instance**
 
 ![Instances filtered by Workshop tag with all selected for termination](SCREENSHOTS/06-tag-filter-cleanup.png)
 
 #### S3: Manual Cleanup
 
-1. S3 → click your bucket → **Empty** (confirms deletion) → **Empty**
-2. Back to bucket list → select bucket → **Delete** → type bucket name → **Delete bucket**
+1. S3 → select your bucket → click **Empty** → type `permanently delete` to confirm → click **Empty**
+2. Back to bucket list → select bucket → click **Delete** → type the bucket name to confirm → click **Delete bucket**
 
 ---
 
@@ -719,7 +722,7 @@ echo "S3 cleanup complete!"
 ### Next Steps
 
 1. **Try it with your data**: Start small — one instance, a dataset you know well
-2. **Apply for AWS Research Credits**: Free credits for researchers — 10-minute application at aws.amazon.com/research-credits
+2. **Apply for AWS Cloud Credit for Research**: Free credits for researchers — 10-minute application at aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/
 3. **GDEW is already applied**: A credit toward data egress costs is applied automatically through CU's AWS agreement — no action needed
 4. **Workshop 2 — spore.host for Production**: Job arrays, data staging, Spot with checkpointing. See **SPOREHOST_TEASER.md** to preview what's coming.
 
@@ -728,7 +731,7 @@ echo "S3 cleanup complete!"
 ### Resources
 
 **AWS for Research**:
-- AWS Research Credits: https://aws.amazon.com/research-credits/
+- AWS Cloud Credit for Research: https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/
 - AWS Pricing Calculator: https://calculator.aws/
 
 **spore.host**:

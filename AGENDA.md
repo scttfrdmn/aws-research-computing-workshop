@@ -14,7 +14,7 @@
 >
 > "AWS was built for Netflix, not for you — but you can use it too."
 
-**CLI recommendation**: Use **AWS CloudShell** (click `>_` in the top nav bar) — browser-based, pre-authenticated, works on all OS including Windows. No installation needed.
+**CLI recommendation**: Use **AWS CloudShell** (click `>_` in the bottom bar) — browser-based, pre-authenticated, works on all OS including Windows. No installation needed.
 
 **What's Different from Traditional Workshops**:
 - ✅ **Lab 0 pre-flight check** — VPC, security group, region set up before anything else
@@ -75,7 +75,7 @@
 ### 0:18 - 0:50 | Hands-On Lab 1: Launch EC2 & Store Data in S3 (32 minutes)
 <!-- Timing: EC2 console 15 min + stop/restart 3 min + spot 2 min + S3 console 12 min = 32 min -->
 
-> **CLI note**: All CLI commands run in **AWS CloudShell** (`>_` in top nav bar) — no installation needed on any OS. CLI sections are marked as optional sidebars.
+> **CLI note**: All CLI commands run in **AWS CloudShell** (`>_` in the bottom bar) — no installation needed on any OS. CLI sections are marked as optional sidebars.
 
 #### Part A: Launch EC2 Instance (15 minutes)
 
@@ -194,7 +194,7 @@ BUCKET_NAME="rcws-yourname-0302"  # replace 'yourname' with your name and '0302'
 - Check expiration dates
 
 **Common sources**:
-- AWS Research Credits Program (apply at aws.amazon.com/research-credits)
+- AWS Cloud Credit for Research (apply at aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/)
 - AWS Educate (students/faculty)
 - Conference/event promotions
 
@@ -315,8 +315,8 @@ aws ec2 terminate-instances --instance-ids $(
 #### Resources
 
 **AWS**:
-- AWS Research Credits: https://aws.amazon.com/research-credits/
-- GDEW Information: https://aws.amazon.com/government-education/research-and-technical-computing/data-egress-waiver/
+- AWS Cloud Credit for Research: https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/
+- GDEW Information: https://aws.amazon.com/government-education/research-and-technical-computing/ (see GDEW section)
 - AWS for Research: https://aws.amazon.com/government-education/research/
 
 **spore.host**:

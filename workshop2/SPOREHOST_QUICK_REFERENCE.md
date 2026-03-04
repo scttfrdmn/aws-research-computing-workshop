@@ -1050,8 +1050,8 @@ alias aws-launch='spawn --spot --ttl 8h'
 - Examples: https://github.com/scttfrdmn/mycelium/tree/main/examples
 
 **AWS Resources**:
-- Research Credits: https://aws.amazon.com/research-credits/
-- GDEW Application: https://aws.amazon.com/government-education/research-and-technical-computing/data-egress-waiver/
+- Cloud Credit for Research: https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/
+- GDEW Information: https://aws.amazon.com/government-education/research-and-technical-computing/ (see GDEW section)
 - HPC on AWS: https://aws.amazon.com/hpc/
 
 **Community**:

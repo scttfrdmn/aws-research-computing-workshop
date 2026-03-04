@@ -233,13 +233,41 @@ spawn --instance-type m6a.xlarge --ttl 4h
 # Move old data to cheaper storage
 aws s3api put-bucket-lifecycle-configuration \
     --bucket your-bucket \
-    --lifecycle-configuration file://lifecycle.json
+    --lifecycle-configuration '{
+  "Rules": [
+    {
+      "ID": "TransitionToGlacier",
+      "Status": "Enabled",
+      "Filter": {},
+      "Transitions": [
+        { "Days": 30, "StorageClass": "GLACIER_IR" },
+        { "Days": 90, "StorageClass": "GLACIER" }
+      ]
+    }
+  ]
+}'
 ```
 
 ### 4. Set Budget Alerts
 ```bash
 # Get notified before overspending
-aws budgets create-budget --account-id YOUR_ACCOUNT --budget file://budget.json
+ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+aws budgets create-budget --account-id $ACCOUNT_ID --budget '{
+  "BudgetName": "research-monthly-budget",
+  "BudgetLimit": { "Amount": "50", "Unit": "USD" },
+  "TimeUnit": "MONTHLY",
+  "BudgetType": "COST"
+}' --notifications-with-subscribers '[{
+  "Notification": {
+    "NotificationType": "ACTUAL",
+    "ComparisonOperator": "GREATER_THAN",
+    "Threshold": 80
+  },
+  "Subscribers": [{
+    "SubscriptionType": "EMAIL",
+    "Address": "your@email.edu"
+  }]
+}]'
 ```
 
 ### 5. Stop (Don't Terminate) for Dev Instances
@@ -348,7 +376,7 @@ truffle quotas --family Standard
 - GitHub: https://github.com/scttfrdmn/mycelium
 
 ### AWS for Research
-- Research Credits: https://aws.amazon.com/research-credits/
+- Cloud Credit for Research: https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/
 - AWS HPC: https://aws.amazon.com/hpc/
 - Case Studies: https://aws.amazon.com/government-education/research/
 

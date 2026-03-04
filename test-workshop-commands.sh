@@ -93,13 +93,12 @@ test_aws_cli_setup() {
 test_ec2_launch() {
     print_test "Testing EC2 instance launch commands"
 
-    # Get latest Amazon Linux AMI
+    # Get latest Amazon Linux AMI (using SSM parameter — matches CURRICULUM.md recommended method)
     print_test "Fetching latest Amazon Linux 2023 AMI"
-    local ami_id=$(aws ec2 describe-images \
-        --owners amazon \
-        --filters "Name=name,Values=al2023-ami-2023.*-x86_64" \
-        "Name=state,Values=available" \
-        --query 'Images | sort_by(@, &CreationDate) | [-1].ImageId' \
+    local ami_id=$(aws ssm get-parameters \
+        --names /aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64 \
+        --region us-west-2 \
+        --query 'Parameters[0].Value' \
         --output text 2>/dev/null)
 
     if [[ -z "$ami_id" ]]; then

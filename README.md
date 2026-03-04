@@ -131,8 +131,8 @@ No SSH client or local AWS CLI installation needed — the workshop uses EC2 Ins
 
 ## Resources
 
-- AWS Research Credits: https://aws.amazon.com/research-credits/
-- GDEW Information: https://aws.amazon.com/government-education/research-and-technical-computing/data-egress-waiver/
+- AWS Cloud Credit for Research: https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/
+- GDEW Information: https://aws.amazon.com/government-education/research-and-technical-computing/ (see GDEW section)
 - CU Boulder Research Computing: https://www.colorado.edu/rc/
 - spore.host GitHub: https://github.com/scttfrdmn/mycelium
 

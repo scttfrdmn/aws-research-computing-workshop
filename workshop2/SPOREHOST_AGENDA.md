@@ -681,7 +681,7 @@ fi
 - GitHub: https://github.com/scttfrdmn/mycelium
 - Documentation: [repo]/README.md
 - Community Slack: [ask instructor]
-- AWS Research Credits: https://aws.amazon.com/research-credits/
+- AWS Cloud Credit for Research: https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/
 
 **Feedback**: https://github.com/scttfrdmn/mycelium/discussions
 

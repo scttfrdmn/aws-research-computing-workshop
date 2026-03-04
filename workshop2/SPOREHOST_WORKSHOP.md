@@ -1387,8 +1387,8 @@ spawn list
 - Issues/Feature Requests: https://github.com/scttfrdmn/mycelium/issues
 
 **AWS Resources**:
-- Research Credits: https://aws.amazon.com/research-credits/
-- GDEW Application: https://aws.amazon.com/government-education/research-and-technical-computing/data-egress-waiver/
+- Cloud Credit for Research: https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/
+- GDEW Information: https://aws.amazon.com/government-education/research-and-technical-computing/ (see GDEW section)
 
 ---
 

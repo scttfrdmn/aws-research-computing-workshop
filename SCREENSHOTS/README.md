@@ -43,7 +43,21 @@ Capture these during a test run. Drop the files here with the names below.
 
 ---
 
-## 03-advanced-details-expanded.png
+## 03-public-ip-enable.png
+
+**What**: The Network settings section of the EC2 launch wizard with Auto-assign public IP set to "Enable"
+
+**How to get there**: EC2 → Launch Instance → Network settings → click "Edit" → find "Auto-assign public IP"
+
+**What to show**: The dropdown clearly showing "Enable" selected (not "Disable")
+
+**Annotate**: Red box around the dropdown. Label: "Must be Enable"
+
+**Used in**: Lab 1, Step 6
+
+---
+
+## 04-advanced-details-expanded.png
 
 **What**: Advanced details expanded, showing IAM instance profile set to `ec2-workshop-role` and the resource tags filled in
 
@@ -59,27 +73,13 @@ Capture these during a test run. Drop the files here with the names below.
 
 ---
 
-## 04-public-ip-enable.png
-
-**What**: The Network settings section of the EC2 launch wizard with Auto-assign public IP set to "Enable"
-
-**How to get there**: EC2 → Launch Instance → Network settings → click "Edit" → find "Auto-assign public IP"
-
-**What to show**: The dropdown clearly showing "Enable" selected (not "Disable")
-
-**Annotate**: Red box around the dropdown. Label: "Must be Enable"
-
-**Used in**: Lab 1, Step 6
-
----
-
 ## 05-instance-connect-tab.png
 
 **What**: The Connect dialog for an EC2 instance, with the "EC2 Instance Connect" tab selected
 
 **How to get there**: EC2 → Instances → check the box next to a running instance → click "Connect" (action bar above the list) → the Connect dialog opens with multiple tabs
 
-**What to show**: All four tabs visible — "EC2 Instance Connect" (selected/active), "Session Manager", "EC2 serial console", "SSH client" — with EC2 Instance Connect tab highlighted
+**What to show**: All four tabs visible — "EC2 Instance Connect" (selected/active), "SSM Session Manager", "EC2 serial console", "SSH client" — with EC2 Instance Connect tab highlighted
 
 **Annotate**: Red box or underline on the "EC2 Instance Connect" tab. Label: "Use this tab"
 
@@ -91,7 +91,7 @@ Capture these during a test run. Drop the files here with the names below.
 
 **What**: The EC2 Instances list filtered by the Workshop tag, showing only workshop instances selected
 
-**How to get there**: EC2 → Instances → click the search bar → type `Workshop` → dropdown appears → click **"Workshop = All values"** → all workshop instances appear → select all checkboxes
+**How to get there**: EC2 → Instances → click the search bar → type `Workshop` → dropdown appears → click **"Workshop ="** (Equals) → second dropdown appears → click **"All values"** → all workshop instances appear → select all checkboxes
 
 **What to show**: The filtered list with:
 - The active filter chip visible at the top: "Workshop = cu-boulder-2026 ×"
@@ -108,7 +108,7 @@ Capture these during a test run. Drop the files here with the names below.
 
 Low priority — only capture if time allows.
 
-**What**: The top navigation bar of the AWS Console with the CloudShell icon (`>_`) highlighted
+**What**: The bottom bar (footer) of the AWS Console with the CloudShell icon (`>_`) highlighted
 
 **Annotate**: Red arrow pointing at the `>_` icon. Label: "CloudShell — browser terminal, no install needed"
 

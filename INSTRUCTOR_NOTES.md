@@ -5,6 +5,7 @@
 ### 1. AWS Account Setup
 - [ ] Ensure all participants have AWS accounts
 - [ ] Verify IAM users have appropriate permissions (EC2, S3, Budgets)
+- [ ] **Enable IAM billing access**: Root account → Account → IAM user and role access to Billing information → Edit → Activate IAM Access (required for students using IAM users to access Budgets/Cost Explorer)
 - [ ] Test account access: `aws sts get-caller-identity`
 
 ### 2. Test Environment

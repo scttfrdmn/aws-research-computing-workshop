@@ -11,7 +11,7 @@
 **Search Bar** (Top center): Type service name (EC2, S3, etc.) - fastest way to navigate!
 
 **CloudShell** (Browser-based terminal — no install needed!):
-- Click the `>_` icon in the top nav bar → opens as a **bottom panel**
+- Click the `>_` icon in the **bottom bar** (labeled "CloudShell") → opens as a **bottom panel**
 - To use in a separate browser tab: click the **⤢ expand icon** in the panel
 - Pre-authenticated: no `aws configure` needed
 
@@ -195,7 +195,7 @@ Path: Billing → Credits (left sidebar)
 │ Active Credits                              │
 │                                             │
 │ $1,000 AWS Research Credits                │
-│ Expires: Dec 31, 2025                      │
+│ Expires: Dec 31, 2026                      │
 │ Applied to date: $127.43                   │
 │                                             │
 │ Remaining: $872.57                         │
@@ -249,7 +249,8 @@ Path: Billing → Cost Explorer
 ### Find Resources by Tag
 ```
 EC2 → Instances → click the search bar → type "Workshop"
-→ dropdown shows Workshop values → click "Workshop = All values"
+→ dropdown shows operators → click "Workshop =" (Equals)
+→ second dropdown shows values → click "All values"
 
 ┌─────────────────────────────────────────────┐
 │ [Workshop = cu-boulder-2026  ×] Clear filt │  ← active filter chip

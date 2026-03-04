@@ -190,8 +190,8 @@ BUCKET_NAME="rcws-demo-0302"
 ---
 
 ### Show: GDEW
-- Navigate to: `https://aws.amazon.com/government-education/research-and-technical-computing/data-egress-waiver/`
-- **Highlight**: The "FREE data transfer out" headline
+- Navigate to: `https://aws.amazon.com/government-education/research-and-technical-computing/` (GDEW no longer has its own page — scroll to the GDEW section on this parent page)
+- **Highlight**: The GDEW section
 - Say: "Normally data transfer out of AWS costs $0.09/GB. Through CU's AWS agreement, GDEW provides a credit toward those costs — nothing you need to do individually. It's a credit toward egress costs, not free egress, but for researchers downloading significant data it makes a real difference. The credit is shared across CU's institutional AWS spending, not a per-account balance."
 
 ---
