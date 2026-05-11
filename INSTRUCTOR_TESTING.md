@@ -97,7 +97,7 @@ The test harness validates:
 
 **Removes**:
 - All EC2 instances with tag `TestHarness=true`
-- All S3 buckets matching `cu-boulder-test-*`
+- All S3 buckets matching `rcw-test-*`
 - Temporary files
 
 **Use when**:

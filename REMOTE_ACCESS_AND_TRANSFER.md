@@ -1,6 +1,6 @@
 # Remote Access and Data Transfer for AWS Research Computing
 
-> **Side document for the CU Boulder AWS Workshop.**
+> **Side document for the Research Computing AWS Workshop.**
 > This covers SSH connection (including Jupyter port forwarding) and data transfer tools for moving data to/from S3 and EC2.
 >
 > **The workshop uses EC2 Instance Connect (no key pair needed) and S3 as the primary data layer.** The tools here are for researchers who want direct SSH access or prefer specific transfer tools — use whichever fits your existing workflow.
@@ -317,7 +317,8 @@ If you have data on a campus HPC system and want to move it to S3:
 
 ```bash
 # Download from HPC to laptop (using scp or rsync with HPC credentials)
-scp -r netid@login.colorado.edu:/projects/yourgroup/data/ ./
+# Substitute <user>@<your-hpc-login-node> with your institution's HPC details
+scp -r <user>@<your-hpc-login-node>:/projects/yourgroup/data/ ./
 
 # Upload from laptop to S3 (AWS CLI or rclone)
 aws s3 sync ./data/ s3://rcws-yourname-0302/data/
@@ -339,11 +340,11 @@ rclone sync /projects/yourgroup/data/ s3://rcws-yourname-0302/data/ \
     --progress --transfers 8
 ```
 
-> Check with your HPC team about policies on outbound transfers from login nodes. Some systems prefer transfer nodes (`xfer.colorado.edu`).
+> Check with your HPC team about policies on outbound transfers from login nodes. Some systems prefer a dedicated transfer node (often named something like `xfer.<your-hpc-domain>` or `dtn.<your-hpc-domain>`).
 
 ### Option 3: rclone on the HPC transfer node
 
-Many institutions have dedicated transfer nodes (e.g., `xfer.colorado.edu`) that are better suited for large outbound transfers than login nodes. Check with your HPC team.
+Many institutions have dedicated transfer/DTN nodes that are better suited for large outbound transfers than login nodes. Check with your HPC team for the hostname.
 
 ```bash
 # On the HPC transfer node

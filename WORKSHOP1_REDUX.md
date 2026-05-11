@@ -148,7 +148,7 @@ Budget alerts and AWS Credits are still in the AWS Billing Console — same step
 
 - **Budget alert**: Billing → Budgets → Create budget → $50/month → 80% threshold → email
 - **Credits**: Account menu → Billing → Credits → check balance and expiration dates
-- **GDEW**: Already applied through CU's AWS agreement — nothing to do
+- **GDEW**: Applied automatically if your institution has a GDEW agreement with AWS — nothing to do per-user. Ask your research computing team if unsure.
 
 > **The habit**: `spawn list` every time you sit down. It shows you what's running, what it costs, and whether a TTL is about to expire. In Workshop 1 you had to navigate to Cost Explorer to get this. Now it's one command.
 
@@ -271,8 +271,8 @@ You've run the same workshop twice. The next step is your actual research data.
 - **spore.host quick start**: SPOREHOST_TEASER.md
 - **spore.host GitHub**: https://github.com/scttfrdmn/mycelium
 - **Workshop 2**: Parallel computing with job arrays — workshop2/
-- **CU Boulder Research Computing**: https://www.colorado.edu/rc/
+- **Your institution's research computing team**: for HPC questions, AWS account setup, and GDEW status
 
 ---
 
-**Version**: 1.0 | **Last Updated**: March 2026
+**Version**: 1.0 | **Last Updated**: May 2026

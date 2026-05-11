@@ -26,7 +26,7 @@ By the end of this workshop, you will be able to:
 2. Launch an EC2 instance with the correct settings and connect via browser terminal — no SSH keys
 3. Create S3 buckets for research data storage and complete the full research loop: pull data → analyze → push results back
 4. Set up budget alerts and understand AWS cost monitoring tools
-5. Check your AWS credits balance and understand the Global Data Egress Waiver (GDEW) credit already applied through CU's AWS agreement
+5. Check your AWS credits balance and understand the Global Data Egress Waiver (GDEW) — a credit applied through your institution's AWS agreement, if one is in place
 6. Clean up all resources using tag-based filtering
 
 CLI equivalents are shown as optional sidebars throughout — useful for automating your work later.
@@ -242,7 +242,7 @@ The Console is the primary method. A CLI sidebar follows for those who want to a
 **Step 2: Name and tags**
 - **Name**: `research-compute-01`
 - Click **"Add new tag"** (just below the Name field)
-  - Key `Workshop` / Value `cu-boulder-2026`
+  - Key `Workshop` / Value `rcworkshop-2026`
   - Key `Owner` / Value `your-name`
   - Without tags, the one-command cleanup at the end won't find your instance.
 - **AMI**: Amazon Linux 2023 (already selected — this is fine)
@@ -323,7 +323,7 @@ aws ec2 run-instances \
     --instance-type m6a.xlarge \
     --iam-instance-profile Name=ec2-workshop-role \
     --security-group-ids $SG_ID \
-    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=research-compute-cli},{Key=Workshop,Value=cu-boulder-2026},{Key=Owner,Value=your-name}]' \
+    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=research-compute-cli},{Key=Workshop,Value=rcworkshop-2026},{Key=Owner,Value=your-name}]' \
     --count 1
 
 # Get instance ID once running
@@ -500,7 +500,7 @@ ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 aws budgets create-budget \
     --account-id $ACCOUNT_ID \
     --budget '{"BudgetName":"research-monthly-budget","BudgetLimit":{"Amount":"50","Unit":"USD"},"TimeUnit":"MONTHLY","BudgetType":"COST"}' \
-    --notifications-with-subscribers '[{"Notification":{"NotificationType":"ACTUAL","ComparisonOperator":"GREATER_THAN","Threshold":80,"ThresholdType":"PERCENTAGE"},"Subscribers":[{"SubscriptionType":"EMAIL","Address":"your.email@colorado.edu"}]}]'
+    --notifications-with-subscribers '[{"Notification":{"NotificationType":"ACTUAL","ComparisonOperator":"GREATER_THAN","Threshold":80,"ThresholdType":"PERCENTAGE"},"Subscribers":[{"SubscriptionType":"EMAIL","Address":"your.email@example.com"}]}]'
 ```
 
 ---
@@ -531,12 +531,12 @@ aws budgets create-budget \
 **What is it?**
 - Downloading data from AWS normally costs $0.09/GB
 - The GDEW provides a **credit toward data egress costs** for eligible academic institutions
-- The credit is capped at a percentage of CU's institutional AWS spending (not individual accounts)
+- The credit is capped at a percentage of the institution's AWS spending (not individual accounts)
 - For researchers who download significant data, this can represent meaningful savings
 
-**For CU researchers**: The GDEW is already applied through CU Boulder's AWS agreement — there is nothing you need to do individually.
+**If your institution has a GDEW agreement with AWS**: the credit is applied automatically — there is nothing you need to do individually.
 
-💡 **If you download significant data volumes, the GDEW credit applies automatically. Contact CU Boulder Research Computing if you have questions about your account.**
+💡 **Not sure whether GDEW applies to your account?** Contact your institution's research computing team. If your institution does *not* have GDEW, egress is billed at standard rates ($0.09/GB) — consider applying for [AWS Cloud Credit for Research](https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/) to help offset costs.
 
 ---
 
@@ -738,14 +738,14 @@ Terminate instances when you're done with them. Stopped instances still charge f
 ```bash
 # See what you're about to terminate
 aws ec2 describe-instances \
-    --filters "Name=tag:Workshop,Values=cu-boulder-2026" \
+    --filters "Name=tag:Workshop,Values=rcworkshop-2026" \
     --query 'Reservations[].Instances[].[InstanceId,Tags[?Key==`Name`].Value|[0],State.Name]' \
     --output table
 
 # Terminate all workshop instances
 aws ec2 terminate-instances --instance-ids $(
     aws ec2 describe-instances \
-        --filters "Name=tag:Workshop,Values=cu-boulder-2026" \
+        --filters "Name=tag:Workshop,Values=rcworkshop-2026" \
                   "Name=instance-state-name,Values=running,stopped,pending" \
         --query 'Reservations[].Instances[].InstanceId' \
         --output text
@@ -760,7 +760,7 @@ aws s3 rb s3://$BUCKET_NAME
 echo "S3 cleanup complete!"
 ```
 
-💡 **Why this works**: Every resource you created has the tag `Workshop=cu-boulder-2026`. Typing `Workshop` in the search bar lets the console find all instances with that tag key — no need to know the exact value.
+💡 **Why this works**: Every resource you created has the tag `Workshop=rcworkshop-2026`. Typing `Workshop` in the search bar lets the console find all instances with that tag key — no need to know the exact value.
 
 ---
 
@@ -800,7 +800,7 @@ echo "S3 cleanup complete!"
 
 1. **Try it with your data**: Start small — one instance, a dataset you know well
 2. **Apply for AWS Cloud Credit for Research**: Free credits for researchers — 10-minute application at aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/
-3. **GDEW is already applied**: A credit toward data egress costs is applied automatically through CU's AWS agreement — no action needed
+3. **Check GDEW status**: If your institution has a GDEW agreement, the credit toward data egress costs is applied automatically — no action needed. Ask your research computing team if unsure.
 4. **Workshop 2 — spore.host for Production**: Job arrays, data staging, Spot with checkpointing. See **SPOREHOST_TEASER.md** to preview what's coming.
 
 ---
@@ -815,8 +815,8 @@ echo "S3 cleanup complete!"
 - Quick start: See **SPOREHOST_TEASER.md** (distributed with this workshop)
 - GitHub: https://github.com/scttfrdmn/mycelium
 
-**CU Boulder**:
-- Research Computing: https://www.colorado.edu/rc/
+**Your institution**:
+- Research Computing team — your institution's research computing group can help with HPC questions, AWS account setup specific to your institution, and GDEW status
 
 ---
 

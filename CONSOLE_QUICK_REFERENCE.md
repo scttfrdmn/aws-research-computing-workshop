@@ -54,7 +54,7 @@
 │ Step 1: Name and tags                       │
 │   Name: [research-compute-01            ]   │
 │   [Add new tag]                     │
-│   Workshop=cu-boulder-2026, Owner=your-name │
+│   Workshop=rcworkshop-2026, Owner=your-name │
 ├─────────────────────────────────────────────┤
 │ Step 2: Application and OS Images (AMI)    │
 │   ○ Amazon Linux 2023  [Free tier]         │
@@ -81,7 +81,7 @@
 ```
 
 **Critical settings** — don't skip these:
-- ✅ **Name and tags → Add new tag**: `Workshop=cu-boulder-2026`, `Owner=your-name`
+- ✅ **Name and tags → Add new tag**: `Workshop=rcworkshop-2026`, `Owner=your-name`
 - ✅ **Network settings → Auto-assign public IP = Enable** (if left on default, Instance Connect fails silently)
 - ✅ **Advanced details → IAM instance profile = `ec2-workshop-role`** (required for S3 access)
 - ✅ Allow SSH (port 22, Anywhere-IPv4) in `workshop-sg`
@@ -143,7 +143,7 @@
 │ ☑ Block all public access ✅ (keep this!) │
 ├─────────────────────────────────────────────┤
 │ Bucket Versioning: Disabled                │
-│ Tags: Workshop = cu-boulder-2026           │
+│ Tags: Workshop = rcworkshop-2026           │
 ├─────────────────────────────────────────────┤
 │                      [Create bucket]        │
 └─────────────────────────────────────────────┘
@@ -253,7 +253,7 @@ EC2 → Instances → click the search bar → type "Workshop"
 → second dropdown shows values → click "All values"
 
 ┌─────────────────────────────────────────────┐
-│ [Workshop = cu-boulder-2026  ×] Clear filt │  ← active filter chip
+│ [Workshop = rcworkshop-2026  ×] Clear filt │  ← active filter chip
 ├─────────────────────────────────────────────┤
 │ ☑ i-abc123  research-compute-01  Running   │
 │ ☑ i-def456  research-compute-02  Running   │

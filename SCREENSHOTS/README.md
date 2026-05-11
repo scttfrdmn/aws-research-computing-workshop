@@ -65,7 +65,7 @@ Capture these during a test run. Drop the files here with the names below.
 
 **What to show**:
 - "IAM instance profile" field showing `ec2-workshop-role` selected
-- Resource tags with Key `Workshop` / Value `cu-boulder-2026` and Key `Owner` / Value (anything)
+- Resource tags with Key `Workshop` / Value `rcworkshop-2026` and Key `Owner` / Value (anything)
 
 **Annotate**: Red boxes around both the IAM profile dropdown and the tags rows
 
@@ -94,7 +94,7 @@ Capture these during a test run. Drop the files here with the names below.
 **How to get there**: EC2 → Instances → click the search bar → type `Workshop` → dropdown appears → click **"Workshop ="** (Equals) → second dropdown appears → click **"All values"** → all workshop instances appear → select all checkboxes
 
 **What to show**: The filtered list with:
-- The active filter chip visible at the top: "Workshop = cu-boulder-2026 ×"
+- The active filter chip visible at the top: "Workshop = rcworkshop-2026 ×"
 - One or more instances checked (checkbox column)
 - **Instance state** button visible in the action bar (used for Terminate)
 

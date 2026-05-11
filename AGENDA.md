@@ -2,7 +2,7 @@
 
 **Workshop Title**: Introduction to AWS for Research Computing: From Campus HPC to Cloud
 **Duration**: 2 hours (hard stop)
-**Institution**: University of Colorado Boulder
+**Institution**: [Your Institution]
 **Target Audience**: Researchers transitioning from on-premises HPC to cloud
 
 ---
@@ -84,7 +84,7 @@
 
 **Console** (primary path):
 1. EC2 → **Launch Instance**
-2. **Name**: `research-compute-01` → click **"Add new tag"**: Key `Workshop` / Value `cu-boulder-2026`, Key `Owner` / Value `your-name`
+2. **Name**: `research-compute-01` → click **"Add new tag"**: Key `Workshop` / Value `rcworkshop-2026`, Key `Owner` / Value `your-name`
 3. **AMI**: Amazon Linux 2023 (already selected)
 4. **Instance type**: `m6a.xlarge` (4 vCPU, 16 GB, ~$0.17/hr) — realistic for research workloads
 5. **Key pair**: "Proceed without a key pair" (we'll use Instance Connect)
@@ -109,7 +109,7 @@ aws ec2 run-instances \
     --image-id $AMI_ID --instance-type m6a.xlarge \
     --iam-instance-profile Name=ec2-workshop-role \
     --security-group-ids $SG_ID \
-    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=research-compute-cli},{Key=Workshop,Value=cu-boulder-2026}]' \
+    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=research-compute-cli},{Key=Workshop,Value=rcworkshop-2026}]' \
     --count 1
 ```
 
@@ -208,9 +208,9 @@ BUCKET_NAME="rcws-yourname-0302"  # replace 'yourname' with your name and '0302'
 **What is it?**
 - Downloading data from AWS normally costs $0.09/GB
 - The GDEW provides a **credit toward those egress costs** for eligible academic institutions
-- The credit is capped based on CU's institutional AWS spending (not individual accounts)
+- The credit is capped based on the institution's AWS spending (not individual accounts)
 
-**For CU researchers**: The GDEW is already applied through CU Boulder's AWS agreement — there is nothing you need to do individually.
+**If your institution has a GDEW agreement with AWS**: the credit is applied automatically — there's nothing you need to do individually. Check with your research computing team if you're not sure whether your account is covered.
 
 ---
 
@@ -265,7 +265,7 @@ aws s3 cp s3://$BUCKET_NAME/test-data.txt ./
 ```bash
 aws ec2 terminate-instances --instance-ids $(
     aws ec2 describe-instances \
-        --filters "Name=tag:Workshop,Values=cu-boulder-2026" \
+        --filters "Name=tag:Workshop,Values=rcworkshop-2026" \
                   "Name=instance-state-name,Values=running,stopped" \
         --query 'Reservations[].Instances[].InstanceId' \
         --output text
@@ -324,8 +324,8 @@ aws ec2 terminate-instances --instance-ids $(
 - Quick start: See **SPOREHOST_TEASER.md** (distributed with this workshop)
 - GitHub: https://github.com/scttfrdmn/mycelium
 
-**CU Boulder**:
-- Research Computing: https://www.colorado.edu/rc/
+**Your institution**:
+- Research Computing team (link your institution's RC page here for participants)
 - Workshop materials: https://github.com/scttfrdmn/aws-research-computing-workshop
 
 ---
@@ -335,7 +335,7 @@ aws ec2 terminate-instances --instance-ids $(
 **Today**:
 1. Run your cleanup script!
 2. Check your AWS credits balance
-3. Remember: GDEW credit on egress costs is already applied through CU's AWS agreement
+3. Check whether your institution has a GDEW agreement — if so, the credit on egress costs applies automatically (ask your research computing team if unsure)
 
 **This Week**:
 1. Read SPOREHOST_TEASER.md and try `truffle find` (no AWS account needed!)
@@ -423,7 +423,7 @@ truffle spot "m6a.*" --sort-by-price | spawn --spot --ttl 8h
 ---
 
 **Workshop Version**: 2.0 (Modern 2026 Edition)
-**Last Updated**: March 2026
-**Prepared for**: CU Boulder Research Computing Team
+**Last Updated**: May 2026
+**Prepared for**: [Your Institution] Research Computing Team
 
 **Total Duration**: Exactly 2:00:00 ⏱️

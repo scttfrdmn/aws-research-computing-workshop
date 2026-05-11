@@ -1,8 +1,8 @@
 # Introduction to AWS for Research Computing: From Campus HPC to Cloud
 
-**Workshop for**: University of Colorado Boulder
+**Workshop for**: [Your Institution] &nbsp;·&nbsp; *(instructors: see [INSTRUCTOR_NOTES.md](INSTRUCTOR_NOTES.md#customizing-for-your-institution) for items to customize before delivering)*
 **Duration**: 2 hours (hard stop) + optional 15-min bonus
-**Last updated**: March 2026
+**Last updated**: May 2026
 
 ---
 
@@ -127,7 +127,7 @@ No SSH client or local AWS CLI installation needed — the workshop uses EC2 Ins
 
 ## Post-Workshop Follow-Up
 
-**Same day**: Share workshop materials, remind participants to check AWS credits (GDEW is already applied through CU's agreement — nothing to do).
+**Same day**: Share workshop materials and the AWS credits page. If your institution has a GDEW agreement, remind participants it applies automatically (no per-user action needed).
 
 **This week**: Office hours (optional). Share AWS Research Credits application link.
 
@@ -139,7 +139,7 @@ No SSH client or local AWS CLI installation needed — the workshop uses EC2 Ins
 
 - AWS Cloud Credit for Research: https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/
 - GDEW Information: https://aws.amazon.com/government-education/research-and-technical-computing/ (see GDEW section)
-- CU Boulder Research Computing: https://www.colorado.edu/rc/
+- Your institution's research computing team — for HPC questions, AWS account setup specific to your institution, and GDEW status
 - spore.host GitHub: https://github.com/scttfrdmn/mycelium
 
 ---
@@ -151,4 +151,4 @@ Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) �
 
 ---
 
-**Version**: 2.0 | **Prepared for**: CU Boulder Research Computing Team
+**Version**: 2.0 | **Prepared for**: [Your Institution] Research Computing Team

@@ -1,4 +1,4 @@
-# Live Demo Guide: CU Boulder AWS Workshop
+# Live Demo Guide: Research Computing AWS Workshop
 
 **For the instructor.** What to show on the projector at each step, what to highlight, and what participants should be watching for.
 
@@ -64,7 +64,7 @@
 ### Show: EC2 Dashboard → Launch Instance
 - EC2 → click **Launch Instance** (orange button, top right)
 - Name field: type `research-compute-01`
-- Click **"Add new tag"** — add `Workshop=cu-boulder-2026` and `Owner=your-name` right here
+- Click **"Add new tag"** — add `Workshop=rcworkshop-2026` and `Owner=your-name` right here
 - **Highlight**: "The tag is how we do cleanup at the end. One filter, select all, terminate. Set it now while you're thinking about it."
 
 ---
@@ -192,7 +192,8 @@ BUCKET_NAME="rcws-demo-0302"
 ### Show: GDEW
 - Navigate to: `https://aws.amazon.com/government-education/research-and-technical-computing/` (GDEW no longer has its own page — scroll to the GDEW section on this parent page)
 - **Highlight**: The GDEW section
-- Say: "Normally data transfer out of AWS costs $0.09/GB. Through CU's AWS agreement, GDEW provides a credit toward those costs — nothing you need to do individually. It's a credit toward egress costs, not free egress, but for researchers downloading significant data it makes a real difference. The credit is shared across CU's institutional AWS spending, not a per-account balance."
+- Say: "Normally data transfer out of AWS costs $0.09/GB. If your institution has a GDEW agreement with AWS, you get a credit toward those costs — nothing you need to do individually. It's a credit toward egress costs, not free egress, but for researchers downloading significant data it makes a real difference. The credit is shared across the institution's AWS spending, not a per-account balance. If you don't know whether your institution has GDEW, your research computing team can confirm."
+- **Instructor tip**: Before the workshop, find out whether *your* institution has a GDEW agreement and tell participants directly. If it does, drop the "if" phrasing and say so concretely.
 
 ---
 
@@ -247,7 +248,7 @@ head results.csv
 
 ### Show: Tag-based EC2 cleanup
 - EC2 → Instances → click the search bar → type `Workshop` → dropdown appears → click **"Workshop = All values"**
-- **Highlight**: The active filter chip that appears: `Workshop = cu-boulder-2026 ×`
+- **Highlight**: The active filter chip that appears: `Workshop = rcworkshop-2026 ×`
 - **Highlight**: Only workshop instances are now visible
 - Check all → **Instance state** → **Terminate (delete) instance**
 - Say: "This is why we tagged everything. Type the tag name, one click, all your instances. A team of 20 researchers could clean up in 30 seconds."
@@ -269,7 +270,7 @@ Key points to hit:
 - Spot instances: 50-90% savings, but requires checkpointing first
 - S3 lifecycle policies: move old data to Glacier (80-95% savings, 5 min to set up)
 - AWS Research Credits: apply if you haven't
-- GDEW: credit toward egress costs, already applied through CU's agreement, nothing to do
+- GDEW: credit toward egress costs, applied automatically if your institution has a GDEW agreement (check with your research computing team)
 - Tag-based cleanup: the habit that prevents forgotten resources
 
 ---
@@ -305,4 +306,4 @@ spawn
 
 ---
 
-**Workshop Version**: 2.0 | **Last Updated**: March 2026
+**Workshop Version**: 2.0 | **Last Updated**: May 2026

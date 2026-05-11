@@ -369,8 +369,8 @@ truffle quotas --family Standard
 - S3 User Guide: https://docs.aws.amazon.com/s3/
 - Pricing Calculator: https://calculator.aws/
 
-### CU Boulder
-- Research Computing: https://www.colorado.edu/rc/
+### Your institution
+- Research Computing team — for HPC questions, AWS account setup, and GDEW status (instructors: substitute your institution's URL here)
 
 ### spore.host
 - GitHub: https://github.com/scttfrdmn/mycelium

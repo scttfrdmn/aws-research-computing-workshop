@@ -211,7 +211,7 @@ test_spot_instances() {
 test_s3_operations() {
     print_test "Testing S3 bucket operations"
 
-    local bucket_name="cu-boulder-test-$TEST_BUCKET_SUFFIX"
+    local bucket_name="rcw-test-$TEST_BUCKET_SUFFIX"
 
     if [[ "$DRY_RUN" == "true" ]]; then
         print_skip "Skipping S3 operations (dry-run mode)"
@@ -438,7 +438,7 @@ cleanup_test_resources() {
 
     # Delete test S3 buckets
     print_test "Deleting test S3 buckets"
-    local buckets=$(aws s3 ls | grep "cu-boulder-test-$TEST_BUCKET_SUFFIX" | awk '{print $3}')
+    local buckets=$(aws s3 ls | grep "rcw-test-$TEST_BUCKET_SUFFIX" | awk '{print $3}')
 
     for bucket in $buckets; do
         print_test "Deleting bucket: $bucket"

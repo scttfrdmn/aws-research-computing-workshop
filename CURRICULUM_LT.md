@@ -287,7 +287,7 @@ aws ec2 create-launch-template \
 4. **Name and tags**:
    - Key `Name` / Value `research-compute-01`
    - Click **"Add tag"** (applies to instance and volumes)
-     - Key `Workshop` / Value `cu-boulder-2026`
+     - Key `Workshop` / Value `rcworkshop-2026`
      - Key `Owner` / Value `your-name`
 5. **Network settings**: expand → **Auto-assign public IP** → set to **"Enable"**
    - This is the one setting not stored in the template because it depends on subnet. Always set it explicitly — Instance Connect requires a public IP.
@@ -454,7 +454,7 @@ aws ec2 run-instances \
     --subnet-id $SUBNET_ID \
     --associate-public-ip-address \
     --tag-specifications \
-        'ResourceType=instance,Tags=[{Key=Name,Value=research-compute-01},{Key=Workshop,Value=cu-boulder-2026},{Key=Owner,Value=your-name}]' \
+        'ResourceType=instance,Tags=[{Key=Name,Value=research-compute-01},{Key=Workshop,Value=rcworkshop-2026},{Key=Owner,Value=your-name}]' \
     --count 1
 
 # Wait for running state
@@ -534,7 +534,7 @@ aws s3 cp test-data.txt s3://$BUCKET_NAME/
 
 ### AWS Global Data Egress Waiver (GDEW)
 
-Downloading data from AWS normally costs $0.09/GB. For CU researchers, the GDEW provides a credit toward egress costs through CU Boulder's AWS agreement — applied automatically, no action needed.
+Downloading data from AWS normally costs $0.09/GB. If your institution has a GDEW agreement with AWS, a credit toward egress costs is applied automatically — no action needed. Check with your research computing team if you're not sure whether GDEW covers your account.
 
 ---
 
@@ -546,7 +546,7 @@ ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 aws budgets create-budget \
     --account-id $ACCOUNT_ID \
     --budget '{"BudgetName":"research-monthly-budget","BudgetLimit":{"Amount":"50","Unit":"USD"},"TimeUnit":"MONTHLY","BudgetType":"COST"}' \
-    --notifications-with-subscribers '[{"Notification":{"NotificationType":"ACTUAL","ComparisonOperator":"GREATER_THAN","Threshold":80,"ThresholdType":"PERCENTAGE"},"Subscribers":[{"SubscriptionType":"EMAIL","Address":"your.email@colorado.edu"}]}]'
+    --notifications-with-subscribers '[{"Notification":{"NotificationType":"ACTUAL","ComparisonOperator":"GREATER_THAN","Threshold":80,"ThresholdType":"PERCENTAGE"},"Subscribers":[{"SubscriptionType":"EMAIL","Address":"your.email@example.com"}]}]'
 ```
 
 ---
@@ -776,7 +776,7 @@ echo "Snapshot deleted: $SNAPSHOT_ID"
 # Terminate all workshop instances
 aws ec2 terminate-instances --instance-ids $(
     aws ec2 describe-instances \
-        --filters "Name=tag:Workshop,Values=cu-boulder-2026" \
+        --filters "Name=tag:Workshop,Values=rcworkshop-2026" \
                   "Name=instance-state-name,Values=running,stopped,pending" \
         --query 'Reservations[].Instances[].InstanceId' \
         --output text
@@ -864,8 +864,8 @@ echo "S3 cleanup complete!"
 - Quick start: See **SPOREHOST_TEASER.md**
 - GitHub: https://github.com/scttfrdmn/mycelium
 
-**CU Boulder**:
-- Research Computing: https://www.colorado.edu/rc/
+**Your institution**:
+- Research Computing team — your local source for HPC questions, AWS account setup, and GDEW status
 
 ---
 

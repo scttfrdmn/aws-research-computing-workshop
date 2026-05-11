@@ -1,4 +1,27 @@
-# Instructor Notes: CU Boulder AWS Workshop
+# Instructor Notes: Research Computing AWS Workshop
+
+## Customizing for Your Institution
+
+These materials are written to be institution-agnostic. Before delivering the workshop, customize the following:
+
+**1. Institution name** — Search and replace `[Your Institution]` across `README.md`, `AGENDA.md`, and footers with your institution's name (e.g., "UT Austin", "ETH Zürich", "NIH").
+
+**2. GDEW status** — The materials use conditional language ("if your institution has GDEW…"). Find out before the workshop whether your institution has a Global Data Egress Waiver agreement with AWS and replace the conditional with a concrete statement. If you don't know, your research computing team or AWS account manager can confirm.
+
+**3. Workshop tag value** — All examples use `Workshop=rcworkshop-2026`. If you'd like a per-institution or per-session tag (helpful for shared accounts), choose your own value and search-replace `rcworkshop-2026` across the curriculum files. Many instructors use `<institution>-MMYY` (e.g., `mit-0511`).
+
+**4. Research computing URL** — Several files have a "Your institution's research computing team" line. Substitute your team's URL and contact info.
+
+**5. HPC examples in `REMOTE_ACCESS_AND_TRANSFER.md`** — Section 3 uses placeholder hostnames like `<your-hpc-login-node>` and `<your-hpc-transfer-node>`. Replace with your institution's actual HPC login / DTN hostnames if you want to give participants copy-pasteable commands.
+
+**6. Region** — Materials default to `us-west-2`. If your institution has a preferred region (e.g., for data sovereignty or shared credits), update the region in all examples.
+
+**Quick find list** (run from the repo root before customizing):
+```bash
+grep -rn "\[Your Institution\]\|rcworkshop-2026\|<your-hpc-" --include="*.md"
+```
+
+---
 
 ## Pre-Workshop Setup (30 minutes before)
 
@@ -168,7 +191,7 @@ aws s3 sync /local/data/ s3://bucket/data/ --progress
 ```bash
 # cleanup.sh
 aws ec2 terminate-instances --instance-ids $(aws ec2 describe-instances \
-    --filters "Name=tag:Workshop,Values=cu-boulder-2026" "Name=instance-state-name,Values=running,stopped" \
+    --filters "Name=tag:Workshop,Values=rcworkshop-2026" "Name=instance-state-name,Values=running,stopped" \
     --query 'Reservations[].Instances[].InstanceId' --output text) && echo "All workshop instances terminated!"
 ```
 
@@ -184,7 +207,7 @@ aws ec2 terminate-instances --instance-ids $(aws ec2 describe-instances \
 **Resources to share**:
 - Workshop materials: CURRICULUM.md, QUICK_REFERENCE.md, SPOREHOST_TEASER.md, WORKSHOP1_REDUX.md
 - AWS Research Credits application link
-- CU Boulder Research Computing: https://www.colorado.edu/rc/
+- Your institution's research computing team contact / URL (substitute in before delivery)
 
 ---
 
@@ -362,4 +385,5 @@ truffle quotas --family Standard
 
 ## Version History
 
-- v2.0 (2026-01-29): CU Boulder workshop — Instance Connect (no SSH), Console-first, pre-flight Lab 0
+- v2.0 (2026-01-29): Initial release — Instance Connect (no SSH), Console-first, pre-flight Lab 0
+- v2.1 (2026-05-11): Made workshop institution-agnostic — placeholders for institution name, conditional GDEW language, removed CU-specific links
