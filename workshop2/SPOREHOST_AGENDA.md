@@ -1,6 +1,6 @@
-# Mycelium Workshop - Final Agenda
+# spore.host Workshop - Final Agenda
 
-**Workshop Title**: From AWS Fundamentals to Production: Mycelium/spore.host Workshop
+**Workshop Title**: From AWS Fundamentals to Production: spore.host Workshop
 **Duration**: 2-3 hours (2 hours core + 30min advanced optional)
 **Prerequisites**: Completed AWS fundamentals workshop OR basic AWS CLI experience
 **Target Audience**: Researchers ready for production cloud workflows
@@ -19,15 +19,16 @@
 - ✋ Completed AWS fundamentals workshop?
 - ✋ Familiar with AWS CLI?
 - ✋ Have AWS credentials configured?
-- ✋ Mycelium installed? (if not, install now while we introduce)
+- ✋ spore.host tools installed (`truffle`, `spawn`)? (if not, install now while we introduce)
 
 **Installation** (if needed):
 ```bash
-# macOS
-brew install scttfrdmn/tap/mycelium
+# macOS / Linux (Homebrew)
+brew install scttfrdmn/tap/truffle
+brew install scttfrdmn/tap/spawn
 
-# Linux/WSL
-curl -sSL https://raw.githubusercontent.com/scttfrdmn/mycelium/main/install.sh | bash
+# Windows: scoop bucket add scttfrdmn https://github.com/scttfrdmn/scoop-bucket && scoop install truffle spawn
+# Linux .deb/.rpm: download per-tool packages from https://github.com/scttfrdmn/spore-host/releases/latest
 
 # Verify
 truffle --version
@@ -663,7 +664,7 @@ fi
 ✅ Cost monitoring with `spawn list`
 
 **This Week**:
-1. Install Mycelium on your machine
+1. Install spore.host tools on your machine
 2. Try `truffle find` (no AWS account needed!)
 3. Launch one instance with wizard mode
 
@@ -673,17 +674,17 @@ fi
 3. Set up daily `spawn list` monitoring
 
 **Long Term**:
-1. Share Mycelium with lab mates
+1. Share spore.host with lab mates
 2. Build reusable workflow scripts
 3. Contribute examples to GitHub
 
 **Resources**:
-- GitHub: https://github.com/scttfrdmn/mycelium
+- GitHub: https://github.com/scttfrdmn/spore-host
 - Documentation: [repo]/README.md
 - Community Slack: [ask instructor]
 - AWS Cloud Credit for Research: https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/
 
-**Feedback**: https://github.com/scttfrdmn/mycelium/discussions
+**Feedback**: https://github.com/scttfrdmn/spore-host/discussions
 
 ---
 

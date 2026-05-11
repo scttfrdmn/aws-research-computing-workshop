@@ -1,4 +1,4 @@
-# Mycelium Quick Reference Guide
+# spore.host Quick Reference Guide
 
 **Print this page for quick reference during your research!** 📄
 
@@ -7,16 +7,23 @@
 ## Installation
 
 ```bash
-# macOS
-brew install scttfrdmn/tap/mycelium
+# macOS / Linux (Homebrew)
+brew install scttfrdmn/tap/truffle
+brew install scttfrdmn/tap/spawn
 
-# Linux/WSL
-curl -sSL https://raw.githubusercontent.com/scttfrdmn/mycelium/main/install.sh | bash
+# Windows (Scoop)
+scoop bucket add scttfrdmn https://github.com/scttfrdmn/scoop-bucket
+scoop install truffle spawn
+
+# Linux .deb/.rpm: download per-tool packages from
+#   https://github.com/scttfrdmn/spore-host/releases/latest
 
 # Verify
 truffle --version
 spawn --version
 ```
+
+See [spore.host](https://spore.host) for the latest install instructions and additional optional tools (`lagotto`, `spore-host-mcp`).
 
 ---
 
@@ -1045,9 +1052,9 @@ alias aws-launch='spawn --spot --ttl 8h'
 ## Resources
 
 **Documentation**:
-- GitHub: https://github.com/scttfrdmn/mycelium
-- Installation: https://github.com/scttfrdmn/mycelium#installation
-- Examples: https://github.com/scttfrdmn/mycelium/tree/main/examples
+- GitHub: https://github.com/scttfrdmn/spore-host
+- Installation: https://github.com/scttfrdmn/spore-host#installation
+- Examples: https://github.com/scttfrdmn/spore-host/tree/main/examples
 
 **AWS Resources**:
 - Cloud Credit for Research: https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/
@@ -1056,8 +1063,8 @@ alias aws-launch='spawn --spot --ttl 8h'
 
 **Community**:
 - Slack: [Ask for invite]
-- GitHub Issues: https://github.com/scttfrdmn/mycelium/issues
-- Discussions: https://github.com/scttfrdmn/mycelium/discussions
+- GitHub Issues: https://github.com/scttfrdmn/spore-host/issues
+- Discussions: https://github.com/scttfrdmn/spore-host/discussions
 
 ---
 

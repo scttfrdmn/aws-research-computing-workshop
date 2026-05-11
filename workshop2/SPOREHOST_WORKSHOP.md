@@ -1,6 +1,6 @@
-# Mycelium for Research Computing: Production Cloud Workflows
+# spore.host for Research Computing: Production Cloud Workflows
 
-**Workshop Title**: From AWS Fundamentals to Production: Mycelium/spore.host Workshop
+**Workshop Title**: From AWS Fundamentals to Production: spore.host Workshop
 **Duration**: 2-3 hours (2 hours core + 30min optional advanced topics)
 **Prerequisites**: Completed "Introduction to AWS for Research Computing" workshop OR basic AWS experience
 **Target Audience**: Researchers ready to move from learning to production cloud workflows
@@ -34,28 +34,31 @@
 - 📅 Reserve GPU capacity in advance with Capacity Blocks
 - 🧪 Real research workflows (genomics, imaging, ML training)
 
-**Philosophy**: "Console taught you concepts. CLI made them scriptable. **Mycelium makes them practical.**"
+**Philosophy**: "Console taught you concepts. CLI made them scriptable. **spore.host makes them practical.**"
 
 ---
 
 ## Installation & Setup (Pre-workshop)
 
-### Install Mycelium
+### Install spore.host tools
 
-**macOS**:
+spore.host packages each tool separately. For this workshop you need `truffle` (discovery) and `spawn` (launch/manage). See [spore.host](https://spore.host) for full install options.
+
+**macOS / Linux (Homebrew)**:
 ```bash
-brew install scttfrdmn/tap/mycelium
+brew install scttfrdmn/tap/truffle
+brew install scttfrdmn/tap/spawn
 ```
 
-**Linux**:
-```bash
-curl -sSL https://raw.githubusercontent.com/scttfrdmn/mycelium/main/install.sh | bash
+**Linux (.deb / .rpm)**: download the per-tool packages from the [latest release](https://github.com/scttfrdmn/spore-host/releases/latest), then install with `sudo dpkg -i truffle_*.deb spawn_*.deb` or `sudo rpm -i truffle_*.rpm spawn_*.rpm`.
+
+**Windows** (via [Scoop](https://scoop.sh)):
+```powershell
+scoop bucket add scttfrdmn https://github.com/scttfrdmn/scoop-bucket
+scoop install truffle spawn
 ```
 
-**Windows** (WSL or Git Bash):
-```bash
-curl -sSL https://raw.githubusercontent.com/scttfrdmn/mycelium/main/install.sh | bash
-```
+> Optional tools (`lagotto`, `spore-host-mcp`) install the same way — `brew install scttfrdmn/tap/<tool>`. Not required for this workshop.
 
 ### Verify Installation
 
@@ -66,7 +69,7 @@ spawn --version
 
 ### AWS Credentials
 
-Mycelium uses your existing AWS credentials:
+spore.host tools use your existing AWS credentials:
 ```bash
 # AWS SSO (recommended)
 aws sso login --profile your-profile
@@ -105,7 +108,7 @@ aws configure
 4. Check specific types (p5.48xlarge)
 5. Hope it's available
 
-**Mycelium Way**:
+**spore.host way**:
 ```bash
 # Natural language search - NO AWS CREDENTIALS NEEDED!
 truffle find h100
@@ -172,7 +175,7 @@ truffle spot "p3.2xlarge" --regions us-west-2,us-east-1
 
 **The Problem**: Launch 50 instances → "InsufficientInstanceCapacity" or "VcpuLimitExceeded" error 😡
 
-**Mycelium Solution**: Check BEFORE launching!
+**spore.host solution**: Check BEFORE launching!
 
 #### Understanding AWS Quotas
 
@@ -1377,14 +1380,14 @@ spawn list
 
 ### Resources
 
-**Mycelium Documentation**:
-- GitHub: https://github.com/scttfrdmn/mycelium
-- Installation: https://github.com/scttfrdmn/mycelium#installation
-- Examples: https://github.com/scttfrdmn/mycelium/tree/main/examples
+**spore.host documentation**:
+- GitHub: https://github.com/scttfrdmn/spore-host
+- Installation: https://github.com/scttfrdmn/spore-host#installation
+- Examples: https://github.com/scttfrdmn/spore-host/tree/main/examples
 
 **Community**:
 - Slack: [Ask instructor for invite]
-- Issues/Feature Requests: https://github.com/scttfrdmn/mycelium/issues
+- Issues/Feature Requests: https://github.com/scttfrdmn/spore-host/issues
 
 **AWS Resources**:
 - Cloud Credit for Research: https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/
@@ -1395,7 +1398,7 @@ spawn list
 ### Next Steps
 
 **This Week**:
-1. Install Mycelium on your machine
+1. Install spore.host tools on your machine
 2. Try `truffle find` to explore instances (no AWS account needed!)
 3. Launch one instance with `spawn` wizard mode
 
@@ -1405,7 +1408,7 @@ spawn list
 3. Set up daily `spawn list` monitoring
 
 **Long Term**:
-1. Share Mycelium with lab mates
+1. Share spore.host with lab mates
 2. Build reusable workflow scripts
 3. Contribute examples to GitHub
 
@@ -1417,7 +1420,7 @@ spawn list
 **What was confusing?**
 **What workflows would you like to see next?**
 
-Share feedback: https://github.com/scttfrdmn/mycelium/discussions
+Share feedback: https://github.com/scttfrdmn/spore-host/discussions
 
 ---
 

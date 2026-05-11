@@ -862,7 +862,7 @@ echo "S3 cleanup complete!"
 
 **spore.host**:
 - Quick start: See **SPOREHOST_TEASER.md**
-- GitHub: https://github.com/scttfrdmn/mycelium
+- GitHub: https://github.com/scttfrdmn/spore-host
 
 **Your institution**:
 - Research Computing team — your local source for HPC questions, AWS account setup, and GDEW status
@@ -881,9 +881,9 @@ You've now seen three levels of AWS workflow:
 - **spore.host**: Single command, configuration handled for you
 
 ```bash
-# Install
-curl -L https://github.com/scttfrdmn/mycelium/releases/latest/download/mycelium-$(uname -s)-$(uname -m).tar.gz | tar xz
-export PATH=$PATH:$PWD/mycelium/bin
+# Install (macOS / Linux via Homebrew — see spore.host for Windows/.deb/.rpm)
+brew install scttfrdmn/tap/truffle
+brew install scttfrdmn/tap/spawn
 
 # Find instances by plain English
 truffle find h100              # Finds p5.48xlarge (H100 GPU)

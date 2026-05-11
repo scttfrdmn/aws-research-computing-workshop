@@ -322,7 +322,7 @@ aws ec2 terminate-instances --instance-ids $(
 
 **spore.host**:
 - Quick start: See **SPOREHOST_TEASER.md** (distributed with this workshop)
-- GitHub: https://github.com/scttfrdmn/mycelium
+- GitHub: https://github.com/scttfrdmn/spore-host
 
 **Your institution**:
 - Research Computing team (link your institution's RC page here for participants)
@@ -366,9 +366,9 @@ You've just done five steps of pre-flight just to launch one instance. This is t
 See **SPOREHOST_TEASER.md** for the full reference. Quick taste:
 
 ```bash
-# Install
-curl -L https://github.com/scttfrdmn/mycelium/releases/latest/download/mycelium-$(uname -s)-$(uname -m).tar.gz | tar xz
-export PATH=$PATH:$PWD/mycelium/bin
+# Install (macOS / Linux via Homebrew — see spore.host for Windows/.deb/.rpm)
+brew install scttfrdmn/tap/truffle
+brew install scttfrdmn/tap/spawn
 
 # Search in plain English — no AWS account needed
 truffle find "large amd"             # Find m6a instances

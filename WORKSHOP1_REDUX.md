@@ -38,15 +38,15 @@
 
 ```bash
 # Install (macOS or Linux — run in your local terminal)
-curl -L https://github.com/scttfrdmn/mycelium/releases/latest/download/mycelium-$(uname -s)-$(uname -m).tar.gz | tar xz
-export PATH=$PATH:$PWD/mycelium/bin
+brew install scttfrdmn/tap/truffle
+brew install scttfrdmn/tap/spawn
 
 # Verify
 truffle --version
 spawn --version
 ```
 
-**Windows**: Download the Windows release from the GitHub releases page and add to your PATH.
+**Windows**: install via [Scoop](https://scoop.sh): `scoop bucket add scttfrdmn https://github.com/scttfrdmn/scoop-bucket && scoop install truffle spawn`. Or download the Windows binaries from the [latest release](https://github.com/scttfrdmn/spore-host/releases/latest) and add them to your PATH.
 
 That's it. No VPC check. No security group. No IAM role to pre-create. `spawn` handles all of that at launch time.
 
@@ -54,7 +54,7 @@ That's it. No VPC check. No security group. No IAM role to pre-create. `spawn` h
 
 ✅ **Lab 0 complete when**: `truffle --version` and `spawn --version` both respond.
 
-> 💡 Add `export PATH=$PATH:$PWD/mycelium/bin` to your `~/.bashrc` or `~/.zshrc` to make this permanent.
+> 💡 Installing via `brew`/`scoop` puts both tools on your `PATH` automatically — no manual PATH editing needed.
 
 ---
 
@@ -269,7 +269,7 @@ You've run the same workshop twice. The next step is your actual research data.
 
 - **Workshop 1**: CURRICULUM.md — fundamentals, Console-first
 - **spore.host quick start**: SPOREHOST_TEASER.md
-- **spore.host GitHub**: https://github.com/scttfrdmn/mycelium
+- **spore.host GitHub**: https://github.com/scttfrdmn/spore-host
 - **Workshop 2**: Parallel computing with job arrays — workshop2/
 - **Your institution's research computing team**: for HPC questions, AWS account setup, and GDEW status
 

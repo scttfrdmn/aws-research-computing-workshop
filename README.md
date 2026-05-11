@@ -140,7 +140,7 @@ No SSH client or local AWS CLI installation needed — the workshop uses EC2 Ins
 - AWS Cloud Credit for Research: https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/
 - GDEW Information: https://aws.amazon.com/government-education/research-and-technical-computing/ (see GDEW section)
 - Your institution's research computing team — for HPC questions, AWS account setup specific to your institution, and GDEW status
-- spore.host GitHub: https://github.com/scttfrdmn/mycelium
+- spore.host GitHub: https://github.com/scttfrdmn/spore-host
 
 ---
 
