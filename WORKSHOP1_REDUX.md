@@ -38,15 +38,15 @@
 
 ```bash
 # Install (macOS or Linux — run in your local terminal)
-brew install scttfrdmn/tap/truffle
-brew install scttfrdmn/tap/spawn
+brew install spore-host/tap/truffle
+brew install spore-host/tap/spawn
 
 # Verify
 truffle --version
 spawn --version
 ```
 
-**Windows**: install via [Scoop](https://scoop.sh): `scoop bucket add scttfrdmn https://github.com/scttfrdmn/scoop-bucket && scoop install truffle spawn`. Or download the Windows binaries from the [latest release](https://github.com/scttfrdmn/spore-host/releases/latest) and add them to your PATH.
+**Windows**: install via [Scoop](https://scoop.sh): `scoop bucket add spore-host https://github.com/spore-host/scoop-bucket && scoop install truffle spawn`. Or download the Windows binaries from the [latest release](https://github.com/spore-host/spore-host/releases/latest) and add them to your PATH.
 
 That's it. No VPC check. No security group. No IAM role to pre-create. `spawn` handles all of that at launch time.
 
@@ -269,7 +269,7 @@ You've run the same workshop twice. The next step is your actual research data.
 
 - **Workshop 1**: CURRICULUM.md — fundamentals, Console-first
 - **spore.host quick start**: SPOREHOST_TEASER.md
-- **spore.host GitHub**: https://github.com/scttfrdmn/spore-host
+- **spore.host GitHub**: https://github.com/spore-host/spore-host
 - **Workshop 2**: Parallel computing with job arrays — workshop2/
 - **Your institution's research computing team**: for HPC questions, AWS account setup, and GDEW status
 

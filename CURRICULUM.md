@@ -813,7 +813,7 @@ echo "S3 cleanup complete!"
 
 **spore.host**:
 - Quick start: See **SPOREHOST_TEASER.md** (distributed with this workshop)
-- GitHub: https://github.com/scttfrdmn/spore-host
+- GitHub: https://github.com/spore-host/spore-host
 
 **Your institution**:
 - Research Computing team — your institution's research computing group can help with HPC questions, AWS account setup specific to your institution, and GDEW status
@@ -835,8 +835,8 @@ spore.host (two tools: `truffle` + `spawn`) closes that gap.
 **Quick taste**:
 ```bash
 # Install (macOS / Linux via Homebrew — see spore.host for Windows/.deb/.rpm)
-brew install scttfrdmn/tap/truffle
-brew install scttfrdmn/tap/spawn
+brew install spore-host/tap/truffle
+brew install spore-host/tap/spawn
 
 # Search by plain English — no AWS account needed!
 truffle find h100              # Finds p5.48xlarge (H100 GPU)

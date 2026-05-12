@@ -373,7 +373,7 @@ truffle quotas --family Standard
 - Research Computing team — for HPC questions, AWS account setup, and GDEW status (instructors: substitute your institution's URL here)
 
 ### spore.host
-- GitHub: https://github.com/scttfrdmn/spore-host
+- GitHub: https://github.com/spore-host/spore-host
 
 ### AWS for Research
 - Cloud Credit for Research: https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/

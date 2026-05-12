@@ -32,17 +32,17 @@ After today's workshop, you know how to:
 
 ```bash
 # Install on macOS or Linux (Homebrew)
-brew install scttfrdmn/tap/truffle
-brew install scttfrdmn/tap/spawn
+brew install spore-host/tap/truffle
+brew install spore-host/tap/spawn
 
 # Verify installation
 truffle --version
 spawn --version
 ```
 
-**Windows**: install via [Scoop](https://scoop.sh): `scoop bucket add scttfrdmn https://github.com/scttfrdmn/scoop-bucket && scoop install truffle spawn`. Or download the Windows binaries from the [latest release](https://github.com/scttfrdmn/spore-host/releases/latest) and add them to your PATH.
+**Windows**: install via [Scoop](https://scoop.sh): `scoop bucket add spore-host https://github.com/spore-host/scoop-bucket && scoop install truffle spawn`. Or download the Windows binaries from the [latest release](https://github.com/spore-host/spore-host/releases/latest) and add them to your PATH.
 
-**Linux (.deb/.rpm)**: download the per-tool `.deb` or `.rpm` from the [latest release](https://github.com/scttfrdmn/spore-host/releases/latest) and install with `dpkg -i` / `rpm -i`.
+**Linux (.deb/.rpm)**: download the per-tool `.deb` or `.rpm` from the [latest release](https://github.com/spore-host/spore-host/releases/latest) and install with `dpkg -i` / `rpm -i`.
 
 > See [spore.host](https://spore.host) for the latest install instructions and additional optional tools (`lagotto`, `spore-host-mcp`).
 
@@ -318,7 +318,7 @@ spawn stage delete dataset.tar.gz
 
 ## Getting More
 
-- **GitHub**: https://github.com/scttfrdmn/spore-host
+- **GitHub**: https://github.com/spore-host/spore-host
 - **Workshop 2**: spore.host for Production Research Computing
   - Job arrays at scale (10-20 instances, quota-dependent)
   - Data staging (99% transfer cost savings)

@@ -322,7 +322,7 @@ aws ec2 terminate-instances --instance-ids $(
 
 **spore.host**:
 - Quick start: See **SPOREHOST_TEASER.md** (distributed with this workshop)
-- GitHub: https://github.com/scttfrdmn/spore-host
+- GitHub: https://github.com/spore-host/spore-host
 
 **Your institution**:
 - Research Computing team (link your institution's RC page here for participants)
@@ -367,8 +367,8 @@ See **SPOREHOST_TEASER.md** for the full reference. Quick taste:
 
 ```bash
 # Install (macOS / Linux via Homebrew — see spore.host for Windows/.deb/.rpm)
-brew install scttfrdmn/tap/truffle
-brew install scttfrdmn/tap/spawn
+brew install spore-host/tap/truffle
+brew install spore-host/tap/spawn
 
 # Search in plain English — no AWS account needed
 truffle find "large amd"             # Find m6a instances

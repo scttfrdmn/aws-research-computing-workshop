@@ -282,15 +282,15 @@ Only show if participants are staying voluntarily after hard stop.
 ### Show: CloudShell
 ```bash
 # CloudShell is Amazon Linux 2023 — install the rpm packages from the latest release
-VER=$(curl -s https://api.github.com/repos/scttfrdmn/spore-host/releases/latest | sed -n 's/.*"tag_name": "v\(.*\)".*/\1/p')
+VER=$(curl -s https://api.github.com/repos/spore-host/spore-host/releases/latest | sed -n 's/.*"tag_name": "v\(.*\)".*/\1/p')
 sudo dnf install -y \
-  "https://github.com/scttfrdmn/spore-host/releases/download/v${VER}/truffle_${VER}_linux_amd64.rpm" \
-  "https://github.com/scttfrdmn/spore-host/releases/download/v${VER}/spawn_${VER}_linux_amd64.rpm"
+  "https://github.com/spore-host/spore-host/releases/download/v${VER}/truffle_${VER}_linux_amd64.rpm" \
+  "https://github.com/spore-host/spore-host/releases/download/v${VER}/spawn_${VER}_linux_amd64.rpm"
 
 truffle find "large amd"
 ```
 - **Highlight**: Natural language search working without AWS credentials
-- Say: "Lab 0 was 5 steps before we launched anything. That overhead exists every time. `spawn` eliminates it. On your own laptop, `brew install scttfrdmn/tap/truffle scttfrdmn/tap/spawn` is the easiest path — full instructions at spore.host."
+- Say: "Lab 0 was 5 steps before we launched anything. That overhead exists every time. `spawn` eliminates it. On your own laptop, `brew install spore-host/tap/truffle spore-host/tap/spawn` is the easiest path — full instructions at spore.host."
 
 ```bash
 spawn

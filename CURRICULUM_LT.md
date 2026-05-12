@@ -862,7 +862,7 @@ echo "S3 cleanup complete!"
 
 **spore.host**:
 - Quick start: See **SPOREHOST_TEASER.md**
-- GitHub: https://github.com/scttfrdmn/spore-host
+- GitHub: https://github.com/spore-host/spore-host
 
 **Your institution**:
 - Research Computing team — your local source for HPC questions, AWS account setup, and GDEW status
@@ -882,8 +882,8 @@ You've now seen three levels of AWS workflow:
 
 ```bash
 # Install (macOS / Linux via Homebrew — see spore.host for Windows/.deb/.rpm)
-brew install scttfrdmn/tap/truffle
-brew install scttfrdmn/tap/spawn
+brew install spore-host/tap/truffle
+brew install spore-host/tap/spawn
 
 # Find instances by plain English
 truffle find h100              # Finds p5.48xlarge (H100 GPU)

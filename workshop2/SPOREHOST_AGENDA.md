@@ -24,11 +24,11 @@
 **Installation** (if needed):
 ```bash
 # macOS / Linux (Homebrew)
-brew install scttfrdmn/tap/truffle
-brew install scttfrdmn/tap/spawn
+brew install spore-host/tap/truffle
+brew install spore-host/tap/spawn
 
-# Windows: scoop bucket add scttfrdmn https://github.com/scttfrdmn/scoop-bucket && scoop install truffle spawn
-# Linux .deb/.rpm: download per-tool packages from https://github.com/scttfrdmn/spore-host/releases/latest
+# Windows: scoop bucket add spore-host https://github.com/spore-host/scoop-bucket && scoop install truffle spawn
+# Linux .deb/.rpm: download per-tool packages from https://github.com/spore-host/spore-host/releases/latest
 
 # Verify
 truffle --version
@@ -679,12 +679,12 @@ fi
 3. Contribute examples to GitHub
 
 **Resources**:
-- GitHub: https://github.com/scttfrdmn/spore-host
+- GitHub: https://github.com/spore-host/spore-host
 - Documentation: [repo]/README.md
 - Community Slack: [ask instructor]
 - AWS Cloud Credit for Research: https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/
 
-**Feedback**: https://github.com/scttfrdmn/spore-host/discussions
+**Feedback**: https://github.com/spore-host/spore-host/discussions
 
 ---
 

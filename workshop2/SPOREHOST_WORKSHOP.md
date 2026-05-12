@@ -46,19 +46,19 @@ spore.host packages each tool separately. For this workshop you need `truffle` (
 
 **macOS / Linux (Homebrew)**:
 ```bash
-brew install scttfrdmn/tap/truffle
-brew install scttfrdmn/tap/spawn
+brew install spore-host/tap/truffle
+brew install spore-host/tap/spawn
 ```
 
-**Linux (.deb / .rpm)**: download the per-tool packages from the [latest release](https://github.com/scttfrdmn/spore-host/releases/latest), then install with `sudo dpkg -i truffle_*.deb spawn_*.deb` or `sudo rpm -i truffle_*.rpm spawn_*.rpm`.
+**Linux (.deb / .rpm)**: download the per-tool packages from the [latest release](https://github.com/spore-host/spore-host/releases/latest), then install with `sudo dpkg -i truffle_*.deb spawn_*.deb` or `sudo rpm -i truffle_*.rpm spawn_*.rpm`.
 
 **Windows** (via [Scoop](https://scoop.sh)):
 ```powershell
-scoop bucket add scttfrdmn https://github.com/scttfrdmn/scoop-bucket
+scoop bucket add spore-host https://github.com/spore-host/scoop-bucket
 scoop install truffle spawn
 ```
 
-> Optional tools (`lagotto`, `spore-host-mcp`) install the same way — `brew install scttfrdmn/tap/<tool>`. Not required for this workshop.
+> Optional tools (`lagotto`, `spore-host-mcp`) install the same way — `brew install spore-host/tap/<tool>`. Not required for this workshop.
 
 ### Verify Installation
 
@@ -1381,13 +1381,13 @@ spawn list
 ### Resources
 
 **spore.host documentation**:
-- GitHub: https://github.com/scttfrdmn/spore-host
-- Installation: https://github.com/scttfrdmn/spore-host#installation
-- Examples: https://github.com/scttfrdmn/spore-host/tree/main/examples
+- GitHub: https://github.com/spore-host/spore-host
+- Installation: https://github.com/spore-host/spore-host#installation
+- Examples: https://github.com/spore-host/spore-host/tree/main/examples
 
 **Community**:
 - Slack: [Ask instructor for invite]
-- Issues/Feature Requests: https://github.com/scttfrdmn/spore-host/issues
+- Issues/Feature Requests: https://github.com/spore-host/spore-host/issues
 
 **AWS Resources**:
 - Cloud Credit for Research: https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/
@@ -1420,7 +1420,7 @@ spawn list
 **What was confusing?**
 **What workflows would you like to see next?**
 
-Share feedback: https://github.com/scttfrdmn/spore-host/discussions
+Share feedback: https://github.com/spore-host/spore-host/discussions
 
 ---
 
